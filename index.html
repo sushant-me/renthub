@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Hub | Sydney rentals direct from owners and agents</title>
+  <meta name="description" content="Rent Hub is a direct rental marketplace for Sydney. Browse or swipe through real listings, message the owner, book an inspection, and skip the agency fees. Free to browse and free to list.">
+  <meta name="theme-color" content="#F6F5F2">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rent Hub | Sydney rentals direct from owners and agents">
+  <meta property="og:description" content="Browse or swipe through real Sydney rentals, message the owner and book an inspection. No agency fees.">
+  <meta property="og:image" content="https://sushant-me.github.io/renthub/assets/brand/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rent Hub | Sydney rentals direct from owners and agents">
+  <meta name="twitter:image" content="https://sushant-me.github.io/renthub/assets/brand/og.jpg">
+  <link rel="preload" href="assets/fonts/Poppins-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Poppins-Black.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html" aria-label="Rent Hub home">
+        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#what">What it does</a>
+        <a href="#screens">Screenshots</a>
+        <a href="#how">How it works</a>
+        <a href="#trust">Trust and safety</a>
+        <a href="#download">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-pink btn-small" href="#download">Download for Android</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+          <span class="sr-only">Open menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" data-menu>
+      <div class="wrap inner">
+        <a href="#what">What it does</a>
+        <a href="#screens">Screenshots</a>
+        <a href="#how">How it works</a>
+        <a href="#trust">Trust and safety</a>
+        <a href="#download">Download</a>
+        <a class="btn btn-pink" href="#download">Download for Android</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Landlords and Tenants Direct</p>
+          <h1>Sydney rentals, <span class="accent">direct from owners</span> and agents.</h1>
+          <p class="lede">
+            Rent Hub is a direct rental marketplace for Sydney. Browse real homes, message the owner,
+            book an inspection, and skip the agency fees. Free to browse. Free to list.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-pink" href="__APK_URL__">Download for Android</a>
+            <a class="btn btn-outline" href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">Watch the demo</a>
+          </div>
+          <p class="hero-note">Android APK version 1.0.0, 63.5 MB. The iPhone app is coming via TestFlight.</p>
+          <ul class="trust-row">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              Verified owners and agents
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              Every synced post admin approved
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              No agency fees
+            </li>
+          </ul>
+        </div>
+        <div class="hero-phones">
+          <div class="phone phone-a">
+            <img src="assets/shots/mobile-home.jpg" alt="Rent Hub home feed on Android, showing Sydney rental listings with prices and suburbs" width="780" height="1688">
+          </div>
+          <div class="phone phone-b">
+            <img src="assets/shots/mobile-discover.jpg" alt="Rent Hub Discover swipe deck on Android showing a rental card" width="780" height="1688">
+          </div>
+        </div>
+      </div>
+      <p class="wrap phone-caption">Home feed and Discover. Screenshots from the Android app.</p>
+    </section>
+
+    <section class="section section-white" id="what">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>What it does</p>
+          <h2>One app for the whole rental, start to finish.</h2>
+          <p class="lede">Search, swipe, inspect and message, all in one place. Built for renters, private owners and agents across Sydney.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+            </span>
+            <h3>Search Sydney properly</h3>
+            <p>Filter by suburb, postcode or train station, then narrow it down with rent, bedrooms, pets and parking.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.4 5.4 0 0 0-7.6 0L12 6.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 22l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+            </span>
+            <h3>Swipe instead of scrolling</h3>
+            <p>Discover puts one home on screen at a time. Swipe right to save it, left to skip, and undo if you change your mind.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+            </span>
+            <h3>Facebook group sync</h3>
+            <p>Public group posts are read and turned into structured listings, then queued for an admin. The author and a link to the original post are kept.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L8 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4l-1.5-3Z"/><circle cx="12" cy="13" r="4"/></svg>
+            </span>
+            <h3>Six photos, no video</h3>
+            <p>Up to six photos per listing, with the first one as the cover. The wizard counts them, sets the order, and picks up mistakes before publishing.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
+            <h3>Music on an ad</h3>
+            <p>An optional short soundtrack with a small play chip on the listing. It never autoplays and stops when you leave the page.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4.2M8.6 13.4l6.8 4.2"/></svg>
+            </span>
+            <h3>Share in a couple of taps</h3>
+            <p>A share sheet for Facebook feed, the Landlords and Tenants Direct page, Marketplace, Instagram, WhatsApp and copy link, with the caption ready.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+            </span>
+            <h3>Agents can list too</h3>
+            <p>Agents get an Agent badge and the same listing and enquiry tools. No subscription is needed to publish a listing.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+            </span>
+            <h3>Saved homes and inspections</h3>
+            <p>Keep a shortlist, book a 15-minute inspection slot, and see every booking in your dashboard.</p>
+          </article>
+          <article class="feature">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.7 8.7 0 0 1-3.8-.9L3 21l1-4.7a8.4 8.4 0 1 1 17-4.8Z"/></svg>
+            </span>
+            <h3>Messaging that keeps numbers private</h3>
+            <p>Chat with the owner or agent inside the app. Your phone number stays private until you choose to share it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-mist" id="sync">
+      <div class="wrap split">
+        <div class="split-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Facebook group sync</p>
+          <h2>Group posts, with a human check.</h2>
+          <p class="lede">
+            The Landlords and Tenants Direct Facebook group is where a lot of Sydney rentals get posted first.
+            Rent Hub reads those public posts, turns them into structured listings, and asks an admin to approve
+            each one before it appears in the app.
+          </p>
+          <ul class="check-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              The parser reads rent, bedrooms, bathrooms and the suburb.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              An admin approves, rejects, or re-parses each post in the web console.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              Published posts keep the author name, the original link and a Synced label.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+              Incomplete posts are held rather than published at a wrong price.
+            </li>
+          </ul>
+        </div>
+        <figure>
+          <div class="browser">
+            <div class="browser-bar">
+              <span class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="browser-url">renthub console / admin / sync</span>
+            </div>
+            <img src="assets/shots/desktop-admin.jpg" alt="Rent Hub admin console showing the Facebook sync panel, pending queue and recent sync runs" width="1440" height="900">
+          </div>
+          <figcaption class="figure-caption">The admin sync panel. Pending group posts wait here until a person approves them.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-white" id="screens">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Screenshots</p>
+          <h2>A quick look around.</h2>
+          <p class="lede">Screenshots from the Android app. The web console uses the same listings, accounts and messages.</p>
+        </div>
+        <div class="screens">
+          <figure class="screen">
+            <div class="phone"><img src="assets/shots/mobile-home.jpg" alt="Home feed with a Sydney rental listing and a synced Facebook section" width="780" height="1688"></div>
+            <figcaption>Home feed <span class="meta">Fresh listings and the group feed</span></figcaption>
+          </figure>
+          <figure class="screen">
+            <div class="phone"><img src="assets/shots/mobile-browse.jpg" alt="Browse screen with rental cards" width="780" height="1688"></div>
+            <figcaption>Browse <span class="meta">Filters, sort and a map view</span></figcaption>
+          </figure>
+          <figure class="screen">
+            <div class="phone"><img src="assets/shots/mobile-discover.jpg" alt="Discover swipe deck with a rental card" width="780" height="1688"></div>
+            <figcaption>Discover <span class="meta">Swipe right to save, left to skip</span></figcaption>
+          </figure>
+          <figure class="screen">
+            <div class="phone"><img src="assets/shots/mobile-listing.jpg" alt="Listing detail with gallery, rent and contact buttons" width="780" height="1688"></div>
+            <figcaption>Listing detail <span class="meta">Gallery, facts and inspection times</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-mist" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>How it works</p>
+          <h2>Three steps, no middleman.</h2>
+          <p class="lede">The whole process stays between you and the owner or agent. Rent Hub provides the marketplace and the messaging, not the lease.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <h3>Search or swipe</h3>
+            <p>Start with a suburb, postcode or train station, or open Discover and work through one home at a time.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <h3>Message the owner</h3>
+            <p>Ask about the bond, the lease length or the neighbours. Your phone number stays private in the chat.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <h3>Book an inspection</h3>
+            <p>Pick a 15-minute slot, meet at the property, and deal directly with the person renting it out.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-white" id="web">
+      <div class="wrap">
+        <div class="web-split">
+          <figure>
+            <div class="browser">
+              <div class="browser-bar">
+                <span class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="browser-url">renthub console / dashboard</span>
+              </div>
+              <img src="assets/shots/desktop-dashboard.jpg" alt="Rent Hub owner dashboard on the web with stats, notifications and a listings table" width="1440" height="900">
+            </div>
+            <figcaption class="figure-caption">The owner dashboard on the web, using the same account and listings as the app.</figcaption>
+          </figure>
+          <div class="web-copy">
+            <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Web console</p>
+            <h2>Manage the whole rental from your laptop.</h2>
+            <p class="lede">The web console is the landlord and agent side of Rent Hub, with the same listings and messages as the app.</p>
+            <ul class="check-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                A listings table with lease, renew and boost actions.
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                A three-step create wizard with six photos, reorder and cover.
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                Inspections and messages in one place.
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
+                An admin console for sync, moderation, KYC and reports.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="demo-grid">
+          <a class="demo-card" href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">
+            <span class="demo-thumb">
+              <img src="assets/shots/desktop-browse.jpg" alt="" width="1440" height="900">
+              <span class="play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
+              </span>
+            </span>
+            <span class="demo-body">
+              <span>
+                <strong>Watch the web demo</strong>
+                <span>One unedited run of the real console, 2 minutes 27 seconds.</span>
+              </span>
+              <svg class="demo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+            </span>
+          </a>
+          <a class="demo-card" href="__VIDEO_APK_URL__" target="_blank" rel="noopener">
+            <span class="demo-thumb">
+              <img src="assets/shots/mobile-home.jpg" alt="" width="780" height="1688">
+              <span class="play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
+              </span>
+            </span>
+            <span class="demo-body">
+              <span>
+                <strong>Watch the Android demo</strong>
+                <span>A walkthrough of the Android build.</span>
+              </span>
+              <svg class="demo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-mist" id="trust">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Trust and safety</p>
+          <h2>Built to be trusted, not just fast.</h2>
+          <p class="lede">Rent Hub checks identities, moderates reports and keeps private details out of public listings.</p>
+        </div>
+        <div class="trust-grid">
+          <article class="trust-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <div>
+              <h3>Verified identities</h3>
+              <p>Owners and agents who pass an identity check get a Verified badge. You can see who is behind a listing before you inspect.</p>
+            </div>
+          </article>
+          <article class="trust-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4"/><path d="M4 4c4-2 8 2 12 0v10c-4 2-8-2-12 0"/></svg>
+            </span>
+            <div>
+              <h3>Moderation and reports</h3>
+              <p>Every listing has a report button. Reports go to an admin queue, and a listing can be removed when a report is upheld.</p>
+            </div>
+          </article>
+          <article class="trust-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            </span>
+            <div>
+              <h3>Privacy by default</h3>
+              <p>Phone numbers stay private in chat. Read exactly what is collected and why in the <a href="privacy.html">privacy policy</a>.</p>
+            </div>
+          </article>
+          <article class="trust-item">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8v5c0 5 4 7.5 9 8 5-.5 9-3 9-8V8Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <div>
+              <h3>Fair Trading checks</h3>
+              <p>Listings are scanned for discriminatory wording under New South Wales Fair Trading rules before they can be published. The <a href="terms.html">terms</a> set out the rules.</p>
+            </div>
+          </article>
+        </div>
+        <div class="legal-links">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="terms.html">Terms of use</a>
+          <a href="support.html">Support</a>
+          <a href="__REPORT_URL__" target="_blank" rel="noopener">Project report (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="wrap">
+        <img class="download-lockup" src="assets/brand/renthub-lockup-white.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+        <div class="section-head">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Download</p>
+          <h2>Take Rent Hub with you.</h2>
+          <p class="lede">Free to download and free to list. The Android build is ready now. The iPhone app is coming via TestFlight.</p>
+        </div>
+        <div class="download-grid">
+          <article class="download-card">
+            <span class="status-pill live">Available now</span>
+            <h3>Android APK</h3>
+            <p class="download-meta">Version 1.0.0. 63.5 MB. Android 8.0 and later.</p>
+            <div class="checksum">
+              <span>SHA-256 checksum</span>
+              <code>9155198cf183ab25024ac50812c8ba1617a5d05693d9d2cf406a6062d23b76c7</code>
+            </div>
+            <a class="btn btn-light" href="__APK_URL__">Download the APK</a>
+            <p class="download-note">
+              This is a direct APK install. Android may ask you to allow installs from this source the first time.
+              Compare the SHA-256 above with the file after downloading.
+            </p>
+            <div class="download-links">
+              <a href="__VIDEO_APK_URL__" target="_blank" rel="noopener">Watch the Android demo</a>
+              <a href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">Watch the web demo</a>
+            </div>
+          </article>
+          <article class="download-card">
+            <span class="status-pill progress">In progress</span>
+            <h3>iPhone and iPad</h3>
+            <p class="ios-note">
+              The iPhone app is built from the same Flutter codebase. Installing it on an iPhone needs an Apple
+              Developer signing profile, so iOS is coming via TestFlight.
+            </p>
+            <span class="btn" aria-disabled="true">iOS: coming via TestFlight</span>
+            <div class="download-links">
+              <a href="support.html">Read the iOS status</a>
+              <a href="__REPORT_URL__" target="_blank" rel="noopener">Project report (PDF)</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+          <p>Rent Hub is a direct rental marketplace for Sydney, built by Arvion Technology. Browse, message and inspect without an agency in the middle.</p>
+        </div>
+        <div class="footer-col">
+          <h2>Product</h2>
+          <ul>
+            <li><a href="#what">What it does</a></li>
+            <li><a href="#screens">Screenshots</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms of use</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Support</h2>
+          <ul>
+            <li><a href="support.html">Support and FAQ</a></li>
+            <li><a href="__REPORT_URL__" target="_blank" rel="noopener">Project report</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Rent Hub by Arvion Technology, Sydney.</p>
+        <p>© <span data-year>2026</span> Rent Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
