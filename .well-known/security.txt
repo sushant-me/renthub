@@ -1,4 +1,4 @@
-Contact: mailto:security@renthub.app
+Contact: mailto:hello.renthub@v.cd
 Expires: 2027-11-01T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://renthub.de5.net/.well-known/security.txt
