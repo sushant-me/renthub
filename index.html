@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="Rent Hub | Sydney rentals direct from owners and agents">
   <meta name="twitter:image" content="https://renthub.de5.net/assets/brand/og.jpg">
   <link rel="preload" href="assets/fonts/Poppins-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" as="image" href="assets/shots/mobile-home.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="canonical" href="https://renthub.de5.net/">
@@ -93,10 +94,16 @@
         </div>
         <div class="hero-phones">
           <div class="phone phone-a">
-            <img src="assets/shots/mobile-home.jpg" alt="Rent Hub home feed on Android, showing Sydney rental listings with prices and suburbs" width="780" height="1688">
+            <picture>
+              <source srcset="assets/shots/mobile-home.webp" type="image/webp">
+              <img src="assets/shots/mobile-home.jpg" alt="Rent Hub home feed on Android, showing Sydney rental listings with prices and suburbs" width="780" height="1688" fetchpriority="high">
+            </picture>
           </div>
           <div class="phone phone-b">
-            <img src="assets/shots/mobile-discover.jpg" alt="Rent Hub Discover swipe deck on Android showing a rental card" width="780" height="1688">
+            <picture>
+              <source srcset="assets/shots/mobile-discover.webp" type="image/webp">
+              <img src="assets/shots/mobile-discover.jpg" alt="Rent Hub Discover swipe deck on Android showing a rental card" width="780" height="1688">
+            </picture>
           </div>
         </div>
       </div>
