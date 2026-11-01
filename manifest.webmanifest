@@ -1,0 +1,14 @@
+{
+  "name": "Rent Hub",
+  "short_name": "Rent Hub",
+  "description": "Sydney rentals direct from owners and agents. Browse, swipe, message and list without agency fees.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F6F5F2",
+  "theme_color": "#F52874",
+  "icons": [
+    { "src": "assets/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

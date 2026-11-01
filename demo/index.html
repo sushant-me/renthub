@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rent Hub demo | Sydney rentals direct from owners and agents</title>
+<meta name="description" content="Interactive demo of Rent Hub: browse Sydney rentals, open a listing, swipe to save, message an owner and approve a synced Facebook post. Sample data, no sign-up." />
+<meta name="theme-color" content="#F52874" />
+<link rel="canonical" href="https://sushant-me.github.io/renthub/demo/" />
+<meta property="og:title" content="Rent Hub demo" />
+<meta property="og:description" content="Click through the Rent Hub web app: browse, listing detail, swipe, saved homes, messages, agent dashboard and the Facebook sync queue." />
+<meta property="og:image" content="https://sushant-me.github.io/renthub/assets/brand/og.jpg" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+<link rel="stylesheet" href="demo.css" />
+</head>
+<body>
+<a class="skip" href="#app">Skip to the demo</a>
+
+<div class="demo-banner">
+  <span><b>Interactive demo</b> · sample Sydney data · the installed app uses the live API</span>
+  <a href="../index.html">Back to the site</a>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Rent Hub home">
+    <img src="../assets/brand/renthub-lockup.png" alt="Landlords &amp; Tenants Direct, Rent Hub" width="132" height="46" />
+  </a>
+  <nav class="topnav" aria-label="Demo sections">
+    <button class="navlink" data-go="browse">Browse</button>
+    <button class="navlink" data-go="swipe">Swipe</button>
+    <button class="navlink" data-go="saved">Saved <span class="count" id="savedCount">0</span></button>
+    <button class="navlink" data-go="messages">Messages</button>
+    <button class="navlink" data-go="profile">Profile</button>
+  </nav>
+  <div class="top-actions">
+    <span class="role-chip" id="roleChip" hidden></span>
+    <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="app" tabindex="-1" aria-live="polite"></main>
+
+<nav class="tabbar" id="tabbar" aria-label="Primary" hidden>
+  <button data-go="browse" class="tab" aria-label="Browse">⌂<span>Browse</span></button>
+  <button data-go="swipe" class="tab" aria-label="Swipe">♡<span>Swipe</span></button>
+  <button data-go="saved" class="tab" aria-label="Saved homes">♥<span>Saved</span></button>
+  <button data-go="messages" class="tab" aria-label="Messages">✉<span>Messages</span></button>
+  <button data-go="profile" class="tab" aria-label="Profile">◯<span>Profile</span></button>
+</nav>
+
+<div id="modalRoot"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<audio id="player" preload="none"></audio>
+
+<script src="demo.js"></script>
+</body>
+</html>

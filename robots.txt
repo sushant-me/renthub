@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sushant-me.github.io/renthub/sitemap.xml

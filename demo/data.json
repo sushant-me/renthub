@@ -1,0 +1,762 @@
+{
+ "generatedAt": "2026-11-01T13:57:37+00:00",
+ "counts": {
+  "listings": 17,
+  "pending": 2,
+  "tracks": 3
+ },
+ "listings": [
+  {
+   "id": "l10",
+   "title": "Managed 2-Bed Apartment with Harbour Glimpses",
+   "type": "unit",
+   "beds": 2,
+   "baths": 1,
+   "parking": "carspot",
+   "petFriendly": false,
+   "rent": 950,
+   "bond": 3800,
+   "suburb": "North Sydney",
+   "postcode": "2060",
+   "address": "14/100 Walker Street, North Sydney",
+   "description": "Professionally managed two-bedroom apartment with harbour glimpses, a study nook and secure parking. Walk to North Sydney station, cafes and the ferry. Agent-managed with 24-hour maintenance.",
+   "photos": [
+    "img/syd-apartment-block.jpg",
+    "img/syd-living-view.jpg",
+    "img/syd-kitchen-minimal.jpg",
+    "img/syd-bedroom-view.jpg",
+    "img/syd-bathroom-modern.jpg"
+   ],
+   "featured": true,
+   "premium": false,
+   "views": 169,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": true,
+   "music": {
+    "title": "City Lights",
+    "mood": "Evening",
+    "url": "music/city-lights.mp3"
+   },
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:00am"
+    },
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    }
+   ]
+  },
+  {
+   "id": "l1",
+   "title": "Bright 2-Bed Unit Steps from Bondi Beach",
+   "type": "unit",
+   "beds": 2,
+   "baths": 1,
+   "parking": "carspot",
+   "petFriendly": false,
+   "rent": 780,
+   "bond": 3120,
+   "suburb": "Bondi Beach",
+   "postcode": "2026",
+   "address": "12/58 Hall Street, Bondi Beach",
+   "description": "Light-filled top-floor unit with ocean glimpses, polished floors and a north-facing balcony. Walk to the beach, cafes and express buses to the CBD. Gas kitchen, built-in robes and a secure car space.",
+   "photos": [
+    "img/syd-apartment-white.jpg",
+    "img/syd-living-bright.jpg",
+    "img/syd-kitchen-white.jpg",
+    "img/syd-bedroom-soft.jpg",
+    "img/syd-bathroom-clean.jpg"
+   ],
+   "featured": true,
+   "premium": true,
+   "views": 422,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": {
+    "title": "Golden Hour",
+    "mood": "Warm",
+    "url": "music/golden-hour.mp3"
+   },
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    },
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    }
+   ]
+  },
+  {
+   "id": "l2",
+   "title": "Family Brick House, 4 Bed, 2 Bath, Double Garage",
+   "type": "house",
+   "beds": 4,
+   "baths": 2,
+   "parking": "garage",
+   "petFriendly": true,
+   "rent": 1100,
+   "bond": 4400,
+   "suburb": "Parramatta",
+   "postcode": "2150",
+   "address": "7 Wattle Grove, Parramatta",
+   "description": "Renovated four-bedroom family home on a quiet street, close to Parramatta Park and Westfield. Large yard, modern kitchen, ducted air-conditioning and a double lock-up garage. Pets considered on application.",
+   "photos": [
+    "img/syd-house-weatherboard.jpg",
+    "img/syd-living-elegant.jpg",
+    "img/syd-kitchen-dining.jpg",
+    "img/syd-bedroom-light.jpg",
+    "img/syd-bathroom-tiled.jpg"
+   ],
+   "featured": true,
+   "premium": false,
+   "views": 388,
+   "available": "In 2 weeks",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    }
+   ]
+  },
+  {
+   "id": "l5",
+   "title": "Renovated 2-Bed Terrace with Courtyard",
+   "type": "house",
+   "beds": 2,
+   "baths": 1,
+   "parking": "on-street",
+   "petFriendly": true,
+   "rent": 850,
+   "bond": 3400,
+   "suburb": "Newtown",
+   "postcode": "2042",
+   "address": "44 Enmore Road, Newtown",
+   "description": "Charming renovated terrace with original fireplaces, a private courtyard and a short walk to King Street's cafes, theatres and trains.",
+   "photos": [
+    "img/syd-townhouse-dark.jpg",
+    "img/syd-living-heritage.jpg",
+    "img/syd-kitchen-large.jpg",
+    "img/syd-bedroom-green.jpg",
+    "img/syd-living-cosy.jpg"
+   ],
+   "featured": true,
+   "premium": false,
+   "views": 312,
+   "available": "In 3 weeks",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "10:00am"
+    }
+   ]
+  },
+  {
+   "id": "00c724e1-23e9-4c62-ac6b-0ad11dc76772",
+   "title": "Studio in Bondi",
+   "type": "studio",
+   "beds": 0,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 550,
+   "bond": 2200,
+   "suburb": "Bondi",
+   "postcode": "2026",
+   "address": "Bondi, NSW 2026",
+   "description": "Beachside studio Bondi $550/wk fully furnished, bills included, ocean view balcony. Short or long term. Inbox me \ud83c\udfd6",
+   "photos": [
+    "img/bondi-1.jpg",
+    "img/bondi-2.jpg",
+    "img/bondi-3.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available now",
+   "source": "facebook",
+   "sourceAuthor": "Sofia M.",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:00am"
+    },
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    }
+   ]
+  },
+  {
+   "id": "9e47fc49-9f41-4a1b-bf0a-191f1f1dc72e",
+   "title": "1-Bed Unit in Hurstville",
+   "type": "unit",
+   "beds": 1,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 480,
+   "bond": 1920,
+   "suburb": "Hurstville",
+   "postcode": "2220",
+   "address": "Hurstville, NSW 2220",
+   "description": "Granny flat Hurstville $480pw brand new 1 bed 1 bath, own entrance, quiet street, no agents.",
+   "photos": [
+    "img/hurstville-1.jpg",
+    "img/hurstville-2.jpg",
+    "img/hurstville-3.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available now",
+   "source": "facebook",
+   "sourceAuthor": "Linh N.",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    },
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    }
+   ]
+  },
+  {
+   "id": "a19bbc13-1249-47a8-8692-144a6a4ef10f",
+   "title": "2-Bed Unit in Chatswood",
+   "type": "unit",
+   "beds": 2,
+   "baths": 2,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 720,
+   "bond": 2880,
+   "suburb": "Chatswood",
+   "postcode": "2067",
+   "address": "Chatswood, NSW 2067",
+   "description": "CHATSWOOD 2BED 2BATH APARTMENT $720pw \u2705 Pool + gym \u2705 5 min walk to station \u2705 Available 20 Nov. DM for inspection.",
+   "photos": [
+    "img/chatswood-1.jpg",
+    "img/chatswood-2.jpg",
+    "img/chatswood-3.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available 20 Nov",
+   "source": "facebook",
+   "sourceAuthor": "Daniel Wu",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    }
+   ]
+  },
+  {
+   "id": "af91cddd-7461-41a1-ac37-0b28f7c755ee",
+   "title": "3-Bed House in Parramatta",
+   "type": "house",
+   "beds": 3,
+   "baths": 1,
+   "parking": "garage",
+   "petFriendly": false,
+   "rent": 850,
+   "bond": 3400,
+   "suburb": "Parramatta",
+   "postcode": "2150",
+   "address": "Parramatta, NSW 2150",
+   "description": "3 bedroom family home Parramatta $850 per week, big backyard, double garage, close to station & schools. Available 1 Dec. PM me.",
+   "photos": [
+    "img/parramatta-1.jpg",
+    "img/parramatta-2.jpg",
+    "img/parramatta-3.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available 1 Dec",
+   "source": "facebook",
+   "sourceAuthor": "Ravi K.",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "10:00am"
+    }
+   ]
+  },
+  {
+   "id": "7ae88bd3-1b99-498f-a540-cd4809eb113b",
+   "title": "Studio in Roselands",
+   "type": "studio",
+   "beds": 0,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 460,
+   "bond": 1840,
+   "suburb": "Roselands",
+   "postcode": "2196",
+   "address": "Roselands, NSW 2196",
+   "description": "2 STUDIOS TO PICK $450 & $460pw Studio one with couryard Roselands DM me for Agents opens and advertisement.",
+   "photos": [
+    "img/roselands-1.jpg",
+    "img/roselands-2.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available now",
+   "source": "facebook",
+   "sourceAuthor": "Peter Sydney",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:00am"
+    },
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    }
+   ]
+  },
+  {
+   "id": "fd447559-9f86-4d35-861a-242b567cc2d9",
+   "title": "2-Bed House in Marrickville",
+   "type": "house",
+   "beds": 2,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 780,
+   "bond": 3120,
+   "suburb": "Marrickville",
+   "postcode": "2204",
+   "address": "Marrickville, NSW 2204",
+   "description": "Clean 2 bedroom terrace in Marrickville $780 per week, available now. Timber floors, sunny courtyard, pets ok. Message me, no agents please.",
+   "photos": [
+    "img/marrickville-1.jpg",
+    "img/marrickville-2.jpg",
+    "img/marrickville-3.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 0,
+   "available": "Available now",
+   "source": "facebook",
+   "sourceAuthor": "Jess T.",
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    },
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    }
+   ]
+  },
+  {
+   "id": "l13",
+   "title": "Light-Filled 1-Bed with Balcony, Zetland",
+   "type": "unit",
+   "beds": 1,
+   "baths": 1,
+   "parking": "carspot",
+   "petFriendly": false,
+   "rent": 730,
+   "bond": 2920,
+   "suburb": "Zetland",
+   "postcode": "2017",
+   "address": "1203/1 Grandstand Parade, Zetland",
+   "description": "Modern one-bedroom apartment with a north-facing balcony, stone kitchen and a secure car space. Minutes to Green Square station, East Village and the CBD.",
+   "photos": [
+    "img/syd-apartment-sky.jpg",
+    "img/syd-living-warm.jpg",
+    "img/syd-kitchen-white.jpg",
+    "img/syd-bedroom-view.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 41,
+   "available": "In 1 week",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    }
+   ]
+  },
+  {
+   "id": "l12",
+   "title": "Warehouse-Style 1-Bed with Private Courtyard",
+   "type": "unit",
+   "beds": 1,
+   "baths": 1,
+   "parking": "on-street",
+   "petFriendly": false,
+   "rent": 680,
+   "bond": 2720,
+   "suburb": "Marrickville",
+   "postcode": "2204",
+   "address": "9/309 Illawarra Road, Marrickville",
+   "description": "Character-filled one-bedroom conversion with high ceilings, timber floors and a private courtyard. Steps from Marrickville station, breweries and the Sunday farmers market.",
+   "photos": [
+    "img/syd-house-modern.jpg",
+    "img/syd-living-elegant.jpg",
+    "img/syd-kitchen-white.jpg",
+    "img/syd-bedroom-plant.jpg",
+    "img/syd-bathroom-tiled.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 63,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "10:00am"
+    }
+   ]
+  },
+  {
+   "id": "l11",
+   "title": "Sunny 2-Bed Apartment, 300m to Coogee Beach",
+   "type": "unit",
+   "beds": 2,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": true,
+   "rent": 890,
+   "bond": 3560,
+   "suburb": "Coogee",
+   "postcode": "2034",
+   "address": "5/22 Carr Street, Coogee",
+   "description": "North-facing apartment with a sunlit living room, updated kitchen and a shared garden. A three-minute walk to Coogee Beach and the coastal walk. Pets considered.",
+   "photos": [
+    "img/syd-apartment-tower.jpg",
+    "img/syd-living-warm.jpg",
+    "img/syd-kitchen-bench.jpg",
+    "img/syd-bedroom-plant.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 74,
+   "available": "In 2 weeks",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:00am"
+    },
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    }
+   ]
+  },
+  {
+   "id": "l3",
+   "title": "City 1-Bed Apartment near Chatswood Station",
+   "type": "unit",
+   "beds": 1,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 620,
+   "bond": 2480,
+   "suburb": "Chatswood",
+   "postcode": "2067",
+   "address": "3/21 Anderson Street, Chatswood",
+   "description": "Brand-new one-bedroom apartment 400m from Chatswood station. Smeg appliances, stone benchtops, NBN ready and a shared rooftop garden. Perfect for professionals.",
+   "photos": [
+    "img/syd-apartment-block.jpg",
+    "img/syd-living-view.jpg",
+    "img/syd-kitchen-minimal.jpg",
+    "img/syd-bedroom-view.jpg",
+    "img/syd-bathroom-modern.jpg"
+   ],
+   "featured": false,
+   "premium": true,
+   "views": 205,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": {
+    "title": "Sunday Morning",
+    "mood": "Bright",
+    "url": "music/sunday-morning.mp3"
+   },
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    },
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    }
+   ]
+  },
+  {
+   "id": "l6",
+   "title": "Sunlit 3-Bed Unit, Quiet Top Ryde Pocket",
+   "type": "unit",
+   "beds": 3,
+   "baths": 2,
+   "parking": "garage",
+   "petFriendly": true,
+   "rent": 920,
+   "bond": 3680,
+   "suburb": "Ryde",
+   "postcode": "2112",
+   "address": "5/30 Buffalo Road, Ryde",
+   "description": "Spacious three-bedroom unit with two bathrooms, secure garage and a large balcony overlooking landscaped gardens. Close to Top Ryde shopping centre and buses.",
+   "photos": [
+    "img/syd-house-modern.jpg",
+    "img/syd-living-elegant.jpg",
+    "img/syd-kitchen-white.jpg",
+    "img/syd-bedroom-plant.jpg",
+    "img/syd-bathroom-tiled.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 98,
+   "available": "In 1 week",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sun 9 Nov",
+     "time": "11:00am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    }
+   ]
+  },
+  {
+   "id": "l7",
+   "title": "Designer Loft, Surry Hills Lifestyle",
+   "type": "unit",
+   "beds": 1,
+   "baths": 1,
+   "parking": "none",
+   "petFriendly": false,
+   "rent": 720,
+   "bond": 2880,
+   "suburb": "Surry Hills",
+   "postcode": "2010",
+   "address": "6/112 Crown Street, Surry Hills",
+   "description": "Architect-designed loft with exposed brick, double-height ceilings and a sun-drenched living space. Minutes from Central Station and Surry Hills' best dining.",
+   "photos": [
+    "img/syd-apartment-sky.jpg",
+    "img/syd-living-warm.jpg",
+    "img/syd-kitchen-white.jpg",
+    "img/syd-bedroom-view.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 267,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 15 Nov",
+     "time": "9:30am"
+    },
+    {
+     "day": "Sat 15 Nov",
+     "time": "10:00am"
+    }
+   ]
+  },
+  {
+   "id": "l4",
+   "title": "Beachside Studio, Walk to Manly Ferry",
+   "type": "studio",
+   "beds": 0,
+   "baths": 1,
+   "parking": "on-street",
+   "petFriendly": false,
+   "rent": 520,
+   "bond": 2080,
+   "suburb": "Manly",
+   "postcode": "2095",
+   "address": "2/9 The Corso, Manly",
+   "description": "Compact studio in the heart of Manly, seconds from the ferry wharf and beach. Includes a kitchenette, laundry access and unlimited on-street parking permits.",
+   "photos": [
+    "img/syd-apartment-tower.jpg",
+    "img/syd-living-warm.jpg",
+    "img/syd-kitchen-bench.jpg",
+    "img/syd-bedroom-plant.jpg"
+   ],
+   "featured": false,
+   "premium": false,
+   "views": 141,
+   "available": "Available now",
+   "source": "native",
+   "sourceAuthor": null,
+   "isAgent": false,
+   "music": null,
+   "inspections": [
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:00am"
+    },
+    {
+     "day": "Sat 8 Nov",
+     "time": "10:30am"
+    }
+   ]
+  }
+ ],
+ "pending": [
+  {
+   "id": "74b2a854-52a5-420b-8396-ad02131abf7d",
+   "author": "Mia P.",
+   "text": "Room available in Newtown, message for details.",
+   "title": "Room in Newtown",
+   "rent": 0,
+   "beds": null,
+   "baths": null,
+   "suburb": "Newtown",
+   "warnings": [
+    "rent not found",
+    "beds not found",
+    "baths not found"
+   ],
+   "notAListing": false,
+   "photos": [
+    "img/newtown-room-1.jpg"
+   ],
+   "permalink": "https://www.facebook.com/groups/1285998978521706/posts/881007/"
+  },
+  {
+   "id": "302453b3-416b-4545-9310-0db154384056",
+   "author": "Peter Sydney",
+   "text": "FAMILY HOMES WILL BE CHARGED LANDTAX\n\nIs the family home next on the list to be taxed?!\n\nWhat do you think?",
+   "title": "Group post (not a listing)",
+   "rent": 0,
+   "beds": null,
+   "baths": null,
+   "suburb": null,
+   "warnings": [
+    "rent not found",
+    "beds not found",
+    "baths not found",
+    "suburb not found",
+    "not a rental listing"
+   ],
+   "notAListing": true,
+   "photos": [],
+   "permalink": "https://www.facebook.com/groups/1285998978521706/posts/881008/"
+  }
+ ],
+ "tracks": [
+  {
+   "id": "m-golden-hour",
+   "title": "Golden Hour",
+   "mood": "Warm",
+   "duration": 27,
+   "url": "music/golden-hour.mp3"
+  },
+  {
+   "id": "m-city-lights",
+   "title": "City Lights",
+   "mood": "Evening",
+   "duration": 23,
+   "url": "music/city-lights.mp3"
+  },
+  {
+   "id": "m-sunday-morning",
+   "title": "Sunday Morning",
+   "mood": "Bright",
+   "duration": 22,
+   "url": "music/sunday-morning.mp3"
+  }
+ ],
+ "profile": {
+  "name": "Mia Chen",
+  "role": "tenant",
+  "email": "mia@ltd.demo",
+  "initial": "MC"
+ },
+ "agent": {
+  "name": "Angela Sharp",
+  "company": "Sharp Realty",
+  "role": "agent",
+  "initial": "AS"
+ }
+}
