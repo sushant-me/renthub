@@ -396,12 +396,12 @@ code {
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: clamp(28px, 4vw, 56px);
 }
 .hero h1 {
-  font-size: clamp(38px, 6vw, 70px);
+  font-size: clamp(38px, 5vw, 60px);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.01;
