@@ -581,7 +581,7 @@
       case "share-channel": {
         const channel = el.dataset.channel;
         if (channel === "Copy link") {
-          const url = "https://sushant-me.github.io/renthub/";
+          const url = "https://renthub.de5.net/";
           if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => say("Link copied")).catch(() => say("Link copied"));
           else say("Link copied");
         } else {
