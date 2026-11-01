@@ -150,7 +150,7 @@
     const saved = state.saved.has(l.id);
     return `
       <article class="listing-card">
-        <button class="shot" data-action="open" data-id="${l.id}" aria-label="Open ${escapeHtml(l.title)}">
+        <button class="shot" data-action="open" data-id="${l.id}" aria-label="Open ${escapeHtml(l.title)}${l.featured ? ", featured" : ""}${l.source === "facebook" ? ", synced from Facebook" : l.isAgent ? ", agent" : ""}">
           <img src="${l.photos[0]}" alt="" loading="lazy" width="600" height="450" />
           <span class="badges">
             ${l.featured ? '<span class="pill ink">Featured</span>' : ""}
@@ -199,7 +199,7 @@
       <div class="detail">
         <div>
           <div class="gallery" id="gallery">
-            <div class="track" id="galleryTrack">
+            <div class="track" id="galleryTrack" tabindex="0" role="region" aria-label="Photo gallery, use the arrow buttons to change photo">
               ${l.photos.map((p, i) => `<img src="${p}" alt="${escapeHtml(l.title)}, photo ${i + 1} of ${l.photos.length}" loading="${i ? "lazy" : "eager"}" />`).join("")}
             </div>
             <button class="nav prev" data-action="gallery" data-dir="-1" aria-label="Previous photo">‹</button>
