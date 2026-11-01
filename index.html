@@ -16,7 +16,6 @@
   <meta name="twitter:title" content="Rent Hub | Sydney rentals direct from owners and agents">
   <meta name="twitter:image" content="https://sushant-me.github.io/renthub/assets/brand/og.jpg">
   <link rel="preload" href="assets/fonts/Poppins-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="assets/fonts/Poppins-Black.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
@@ -45,7 +44,7 @@
         </button>
       </div>
     </div>
-    <div class="mobile-nav" id="mobile-nav" data-menu>
+    <nav class="mobile-nav" id="mobile-nav" data-menu aria-label="Mobile">
       <div class="wrap inner">
         <a href="#what">What it does</a>
         <a href="#screens">Screenshots</a>
@@ -54,7 +53,7 @@
         <a href="#download">Download</a>
         <a class="btn btn-pink" href="#download">Download for Android</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main id="main">
@@ -68,8 +67,8 @@
             book an inspection, and skip the agency fees. Free to browse. Free to list.
           </p>
           <div class="cta-row">
-            <a class="btn btn-pink" href="__APK_URL__">Download for Android</a>
-            <a class="btn btn-outline" href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">Watch the demo</a>
+            <a class="btn btn-pink" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-1.0.0.apk">Download for Android</a>
+            <a class="btn btn-outline" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Web-Demo.mp4" target="_blank" rel="noopener">Watch the demo</a>
           </div>
           <p class="hero-note">Android APK version 1.0.0, 63.5 MB. The iPhone app is coming via TestFlight.</p>
           <ul class="trust-row">
@@ -209,7 +208,7 @@
               <span class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
               <span class="browser-url">renthub console / admin / sync</span>
             </div>
-            <img src="assets/shots/desktop-admin.jpg" alt="Rent Hub admin console showing the Facebook sync panel, pending queue and recent sync runs" width="1440" height="900">
+            <img loading="lazy" src="assets/shots/desktop-admin.jpg" alt="Rent Hub admin console showing the Facebook sync panel, pending queue and recent sync runs" width="1440" height="900">
           </div>
           <figcaption class="figure-caption">The admin sync panel. Pending group posts wait here until a person approves them.</figcaption>
         </figure>
@@ -225,19 +224,19 @@
         </div>
         <div class="screens">
           <figure class="screen">
-            <div class="phone"><img src="assets/shots/mobile-home.jpg" alt="Home feed with a Sydney rental listing and a synced Facebook section" width="780" height="1688"></div>
+            <div class="phone"><img loading="lazy" src="assets/shots/mobile-home.jpg" alt="Home feed with a Sydney rental listing and a synced Facebook section" width="780" height="1688"></div>
             <figcaption>Home feed <span class="meta">Fresh listings and the group feed</span></figcaption>
           </figure>
           <figure class="screen">
-            <div class="phone"><img src="assets/shots/mobile-browse.jpg" alt="Browse screen with rental cards" width="780" height="1688"></div>
+            <div class="phone"><img loading="lazy" src="assets/shots/mobile-browse.jpg" alt="Browse screen with rental cards" width="780" height="1688"></div>
             <figcaption>Browse <span class="meta">Filters, sort and a map view</span></figcaption>
           </figure>
           <figure class="screen">
-            <div class="phone"><img src="assets/shots/mobile-discover.jpg" alt="Discover swipe deck with a rental card" width="780" height="1688"></div>
+            <div class="phone"><img loading="lazy" src="assets/shots/mobile-discover.jpg" alt="Discover swipe deck with a rental card" width="780" height="1688"></div>
             <figcaption>Discover <span class="meta">Swipe right to save, left to skip</span></figcaption>
           </figure>
           <figure class="screen">
-            <div class="phone"><img src="assets/shots/mobile-listing.jpg" alt="Listing detail with gallery, rent and contact buttons" width="780" height="1688"></div>
+            <div class="phone"><img loading="lazy" src="assets/shots/mobile-listing.jpg" alt="Listing detail with gallery, rent and contact buttons" width="780" height="1688"></div>
             <figcaption>Listing detail <span class="meta">Gallery, facts and inspection times</span></figcaption>
           </figure>
         </div>
@@ -280,7 +279,7 @@
                 <span class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></span>
                 <span class="browser-url">renthub console / dashboard</span>
               </div>
-              <img src="assets/shots/desktop-dashboard.jpg" alt="Rent Hub owner dashboard on the web with stats, notifications and a listings table" width="1440" height="900">
+              <img loading="lazy" src="assets/shots/desktop-dashboard.jpg" alt="Rent Hub owner dashboard on the web with stats, notifications and a listings table" width="1440" height="900">
             </div>
             <figcaption class="figure-caption">The owner dashboard on the web, using the same account and listings as the app.</figcaption>
           </figure>
@@ -309,9 +308,9 @@
           </div>
         </div>
         <div class="demo-grid">
-          <a class="demo-card" href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">
+          <a class="demo-card" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Web-Demo.mp4" target="_blank" rel="noopener">
             <span class="demo-thumb">
-              <img src="assets/shots/desktop-browse.jpg" alt="" width="1440" height="900">
+              <img loading="lazy" src="assets/shots/desktop-browse.jpg" alt="" width="1440" height="900">
               <span class="play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
               </span>
@@ -324,9 +323,9 @@
               <svg class="demo-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
             </span>
           </a>
-          <a class="demo-card" href="__VIDEO_APK_URL__" target="_blank" rel="noopener">
+          <a class="demo-card" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-APK-Emulator-Clip.mp4" target="_blank" rel="noopener">
             <span class="demo-thumb">
-              <img src="assets/shots/mobile-home.jpg" alt="" width="780" height="1688">
+              <img loading="lazy" src="assets/shots/mobile-home.jpg" alt="" width="780" height="1688">
               <span class="play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>
               </span>
@@ -392,7 +391,7 @@
           <a href="privacy.html">Privacy policy</a>
           <a href="terms.html">Terms of use</a>
           <a href="support.html">Support</a>
-          <a href="__REPORT_URL__" target="_blank" rel="noopener">Project report (PDF)</a>
+          <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf" target="_blank" rel="noopener">Project report (PDF)</a>
         </div>
       </div>
     </section>
@@ -409,19 +408,19 @@
           <article class="download-card">
             <span class="status-pill live">Available now</span>
             <h3>Android APK</h3>
-            <p class="download-meta">Version 1.0.0. 63.5 MB. Android 8.0 and later.</p>
+            <p class="download-meta">Version 1.0.0. 63.5 MB. Android 7.0 and later.</p>
             <div class="checksum">
               <span>SHA-256 checksum</span>
               <code>9155198cf183ab25024ac50812c8ba1617a5d05693d9d2cf406a6062d23b76c7</code>
             </div>
-            <a class="btn btn-light" href="__APK_URL__">Download the APK</a>
+            <a class="btn btn-light" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-1.0.0.apk">Download the APK</a>
             <p class="download-note">
               This is a direct APK install. Android may ask you to allow installs from this source the first time.
               Compare the SHA-256 above with the file after downloading.
             </p>
             <div class="download-links">
-              <a href="__VIDEO_APK_URL__" target="_blank" rel="noopener">Watch the Android demo</a>
-              <a href="__VIDEO_WEB_URL__" target="_blank" rel="noopener">Watch the web demo</a>
+              <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-APK-Emulator-Clip.mp4" target="_blank" rel="noopener">Watch the Android demo</a>
+              <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Web-Demo.mp4" target="_blank" rel="noopener">Watch the web demo</a>
             </div>
           </article>
           <article class="download-card">
@@ -434,7 +433,7 @@
             <span class="btn" aria-disabled="true">iOS: coming via TestFlight</span>
             <div class="download-links">
               <a href="support.html">Read the iOS status</a>
-              <a href="__REPORT_URL__" target="_blank" rel="noopener">Project report (PDF)</a>
+              <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf" target="_blank" rel="noopener">Project report (PDF)</a>
             </div>
           </article>
         </div>
@@ -469,7 +468,7 @@
           <h2>Support</h2>
           <ul>
             <li><a href="support.html">Support and FAQ</a></li>
-            <li><a href="__REPORT_URL__" target="_blank" rel="noopener">Project report</a></li>
+            <li><a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf" target="_blank" rel="noopener">Project report</a></li>
           </ul>
         </div>
       </div>

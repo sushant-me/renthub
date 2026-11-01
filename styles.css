@@ -23,14 +23,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Poppins";
-  src: url("assets/fonts/Poppins-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --mist: #f6f5f2;
   --mist-2: #efede8;
@@ -59,6 +51,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+section[id],
+main[id] {
+  scroll-margin-top: 92px;
 }
 
 html {
@@ -301,7 +298,7 @@ code {
   flex-shrink: 0;
 }
 .logo img {
-  height: 42px;
+  height: 46px;
   width: auto;
 }
 .nav {
@@ -385,7 +382,7 @@ code {
     display: none;
   }
   .logo img {
-    height: 36px;
+    height: 38px;
   }
   .header-inner {
     min-height: 66px;
@@ -1085,7 +1082,7 @@ code {
   gap: 28px;
 }
 .footer-brand img {
-  height: 38px;
+  height: 44px;
   width: auto;
 }
 .footer-brand p {
