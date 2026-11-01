@@ -76,6 +76,11 @@ img { display: block; max-width: 100%; }
 }
 .top-actions { display: flex; align-items: center; gap: 10px; }
 .role-chip { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; background: var(--pink-soft); color: var(--pink-dark); padding: 5px 10px; border-radius: 999px; }
+.install-btn {
+  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 13px;
+}
+.install-btn:hover { background: var(--ink); color: #fff; }
 .icon-btn { display: none; border: 1px solid var(--line); background: var(--paper); border-radius: 12px; width: 42px; height: 42px; font-size: 18px; }
 
 main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 110px; }

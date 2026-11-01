@@ -661,6 +661,35 @@
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
+  // ---------------------------------------------------------------- PWA
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {
+        /* offline support is optional */
+      });
+    });
+  }
+
+  let installEvent = null;
+  const installBtn = document.getElementById("installBtn");
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    installEvent = event;
+    installBtn.hidden = false;
+  });
+  installBtn.addEventListener("click", async () => {
+    if (!installEvent) return;
+    installEvent.prompt();
+    const choice = await installEvent.userChoice.catch(() => null);
+    if (choice && choice.outcome === "accepted") say("Rent Hub demo installed");
+    installEvent = null;
+    installBtn.hidden = true;
+  });
+  window.addEventListener("appinstalled", () => {
+    installBtn.hidden = true;
+    say("Rent Hub demo installed");
+  });
+
   // ---------------------------------------------------------------- boot
   fetch("data.json")
     .then((r) => r.json())
