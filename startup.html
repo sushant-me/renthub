@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Company and startup | Rent Hub</title>
+  <meta name="description" content="Rent Hub is a Sydney rental marketplace built by Arvion Technology. Product, stage, evidence and the Claude credits plan.">
+  <meta name="theme-color" content="#F6F5F2">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Rent Hub","url":"https://renthub.de5.net/startup.html","mainEntity":{"@type":"Organization","name":"Arvion Technology","email":"hello@renthub-au.de5.net","url":"https://renthub.de5.net/"}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html" aria-label="Rent Hub home">
+        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html#what">What it does</a>
+        <a href="index.html#screens">Screenshots</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#trust">Trust and safety</a>
+        <a href="index.html#download">Download</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-pink btn-small" href="index.html#download">Download for Android</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+          <span class="sr-only">Open menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" data-menu aria-label="Mobile">
+      <div class="wrap inner">
+        <a href="index.html#what">What it does</a>
+        <a href="index.html#screens">Screenshots</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#trust">Trust and safety</a>
+        <a href="index.html#download">Download</a>
+        <a class="btn btn-pink" href="index.html#download">Download for Android</a>
+      </div>
+    </nav>
+  </header>
+
+    <main id="main" class="doc">
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Company</p>
+      <h1>Rent Hub by Arvion Technology</h1>
+      <p class="doc-meta">Sydney, Australia · Pre-seed · Built for the Claude Startups programme</p>
+      <p>
+        Rent Hub is a direct rental marketplace for Sydney. It replaces the Facebook-group scramble with real
+        listings, a swipe-based discovery flow for tenants, and a review queue that turns social posts into
+        structured listings. Landlords and agents list directly; tenants message, inspect and move without an
+        agency in the middle.
+      </p>
+
+      <h2>What is already built</h2>
+      <ul>
+        <li><strong>Live website and demo:</strong> <a href="https://renthub.de5.net/">renthub.de5.net</a> and <a href="https://renthub.de5.net/demo/">/demo/</a> on a custom domain with HTTPS, 17 sample Sydney homes, browse, swipe, saved, messages and admin sync queue.</li>
+        <li><strong>Android app:</strong> signed APK and Play-uploadable AAB built from a Flutter codebase; the APK runs on a Pixel emulator and is published on the release page.</li>
+        <li><strong>Web app and API:</strong> Next.js marketplace with JWT auth, listings, messaging, inspections, saved searches, admin moderation and Facebook group sync queue; 73/73 API contract checks pass in the container image.</li>
+        <li><strong>Engineering quality:</strong> 0 serious or critical accessibility violations across the public site and demo, Lighthouse 100 for accessibility, best practices and SEO (performance 79-96 depending on CDN latency), Docker image, backups and restore drill, CI for web, mobile, docker and accessibility.</li>
+      </ul>
+
+      <h2>Why this matters</h2>
+      <p>
+        Sydney renters still trawl Facebook groups and realestate.com, then deal with agency fees and slow
+        application funnels. Rent Hub gives owners and agents a direct channel and gives tenants a fast,
+        mobile-first way to find a home. The hard part is trust and moderation: synced posts need review,
+        duplicate listings need detection, and support needs to answer quickly without a large team.
+      </p>
+
+      <h2>How Claude credits would be used</h2>
+      <p>
+        We are applying to the Claude Startups programme for API credits and the Team plan. The first three
+        Claude-powered features would be:
+      </p>
+      <ol>
+        <li><strong>Listing moderation:</strong> classify and normalise imported Facebook posts, detect duplicates and scam patterns, and draft an approve/reject reason for the admin queue.</li>
+        <li><strong>Support triage:</strong> read tenant and landlord messages, classify intent, draft replies with property context, and escalate inspection or safety issues.</li>
+        <li><strong>Listing assistant:</strong> turn a landlord's photos and notes into a structured listing draft (title, description, features, price guidance) with a human approval step.</li>
+      </ol>
+      <p>
+        Every Claude output that reaches the marketplace stays behind human review in the admin console, and
+        every generated listing keeps a moderation trail. The credits would cover the API usage needed to take
+        these features from prototype to the first paying Sydney agents.
+      </p>
+
+      <h2>Stage and links</h2>
+      <ul>
+        <li>Stage: pre-revenue, product and demo built, seeking first design partners among Sydney owners and agents.</li>
+        <li>Website: <a href="https://renthub.de5.net/">https://renthub.de5.net/</a></li>
+        <li>Demo: <a href="https://renthub.de5.net/demo/">https://renthub.de5.net/demo/</a></li>
+        <li>Android release: <a href="https://github.com/sushant-me/renthub/releases/tag/v1.0.0">v1.0.0 APK and AAB</a></li>
+        <li>Project report (PDF): <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf">19-page report</a></li>
+        <li>Contact: <a href="mailto:hello@renthub-au.de5.net?subject=Rent%20Hub%20startup%20enquiry">hello@renthub-au.de5.net</a></li>
+      </ul>
+
+      <div class="note">
+        <strong>Status:</strong> the Claude Startups cohort is currently full and applications are closed. We
+        have joined the Claude Startup newsletter to hear when the next cohort opens and are keeping this page
+        ready as the application link.
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+          <p>Rent Hub is a direct rental marketplace for Sydney, built by Arvion Technology. Browse, message and inspect without an agency in the middle.</p>
+        </div>
+        <div class="footer-col">
+          <h2>Product</h2>
+          <ul>
+            <li><a href="index.html#what">What it does</a></li>
+            <li><a href="index.html#screens">Screenshots</a></li>
+            <li><a href="index.html#how">How it works</a></li>
+            <li><a href="index.html#download">Download</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="startup.html">About and startup</a></li>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms of use</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Support</h2>
+          <ul>
+            <li><a href="support.html">Support and FAQ</a></li>
+            <li><a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf" target="_blank" rel="noopener">Project report</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Rent Hub by Arvion Technology, Sydney.</p>
+        <p>© <span data-year>2026</span> Rent Hub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
