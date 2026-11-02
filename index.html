@@ -29,7 +29,7 @@
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="logo" href="index.html" aria-label="Rent Hub home">
-        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="1200" height="380">
       </a>
       <nav class="nav" aria-label="Main">
         <a href="#what">What it does</a>
@@ -67,16 +67,22 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Landlords and Tenants Direct</p>
-          <h1>Sydney rentals,<br><span class="accent">direct from owners</span><br>and agents.</h1>
+          <h1>Sydney rentals,<br><span class="accent">listed by landlords.</span></h1>
           <p class="lede">
-            Rent Hub is a direct rental marketplace for Sydney. Browse real homes, message the owner,
-            book an inspection, and skip the agency fees. Free to browse. Free to list.
+            Rent Hub is where landlords list and tenants find all types of rental properties in Sydney:
+            units, homes, granny flats, studios, single rooms and more. Skip the agency run around and
+            contact the landlord direct. Easy to list, free to find.
           </p>
+          <ul class="hero-points">
+            <li>Skip the agency run around</li>
+            <li>Contact the landlord direct</li>
+            <li>Easy to list, free to find</li>
+          </ul>
           <div class="cta-row">
-            <a class="btn btn-pink" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-1.0.0-signed.apk">Download for Android</a>
+            <a class="btn btn-pink" href="https://github.com/sushant-me/renthub/releases/download/v1.0.1/RentHub-1.0.1-signed.apk">Download for Android</a>
             <a class="btn btn-outline" href="demo/">Try the live demo</a>
           </div>
-          <p class="hero-note">Android APK version 1.0.0, 63.5 MB. Prefer the browser? <a href="demo/">Open the interactive demo</a> (no sign-up). The iPhone app is coming via TestFlight.</p>
+          <p class="hero-note">Android APK and signed iPhone IPA are ready. Prefer the browser? <a href="demo/">Open the interactive demo</a> (no sign-up). Landlords can respond immediately and directly with tenants, and tenants can also advertise what they are looking for.</p>
           <ul class="trust-row">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>
@@ -425,22 +431,22 @@
 
     <section class="download" id="download">
       <div class="wrap">
-        <img class="download-lockup" src="assets/brand/renthub-lockup-white.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+        <img class="download-lockup" src="assets/brand/renthub-lockup-white.png" alt="Rent Hub, Landlords and Tenants Direct" width="1200" height="380">
         <div class="section-head">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Download</p>
           <h2>Take Rent Hub with you.</h2>
-          <p class="lede">Free to download and free to list. The Android build is ready now. The iPhone app is coming via TestFlight.</p>
+          <p class="lede">Free to download and free to list. The Android APK and signed iPhone IPA are ready now.</p>
         </div>
         <div class="download-grid">
           <article class="download-card">
             <span class="status-pill live">Available now</span>
             <h3>Android APK</h3>
-            <p class="download-meta">Version 1.0.0. 63.5 MB. Release-signed. Android 7.0 and later.</p>
+            <p class="download-meta">Version 1.0.1. 71.7 MB. Release-signed. Android 7.0 and later.</p>
             <div class="checksum">
               <span>SHA-256 checksum</span>
-              <code>3982eb6d59d83632ba96380008197a8c8dd21e0f1fb197d79a404c3e603fe2b6</code>
+              <code>9b6e4f6a6ec6b5cd3d7aef9b6a03591160fe79d514da0558aa7b85f553f58ed0</code>
             </div>
-            <a class="btn btn-light" href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-1.0.0-signed.apk">Download the APK</a>
+            <a class="btn btn-light" href="https://github.com/sushant-me/renthub/releases/download/v1.0.1/RentHub-1.0.1-signed.apk">Download the APK</a>
             <p class="download-note">
               This is a direct install of the release-signed APK. Android may ask you to allow installs from this source the first time. Compare the SHA-256 above with the file after downloading.
             </p>
@@ -450,15 +456,21 @@
             </div>
           </article>
           <article class="download-card">
-            <span class="status-pill progress">In progress</span>
+            <span class="status-pill live">Signed build ready</span>
             <h3>iPhone and iPad</h3>
-            <p class="ios-note">
-              The iPhone app is built from the same Flutter codebase. Installing it on an iPhone needs an Apple
-              Developer signing profile, so iOS is coming via TestFlight.
+            <p class="download-meta">Version 1.0.1. 39.1 MB. Signed IPA. Built with Apple Distribution for Arvion Technologies.</p>
+            <div class="checksum">
+              <span>SHA-256 checksum</span>
+              <code>61b16d3caf1628106da342a752327386e06aca1263972cacc5ae9cb3c88b5e3d</code>
+            </div>
+            <a class="btn btn-light" href="https://github.com/sushant-me/renthub/releases/download/v1.0.1/RentHub-signed.ipa">Download the iOS IPA</a>
+            <p class="download-note">
+              This is a signed distribution build, not an App Store release. To install it on a tester's
+              iPhone, use TestFlight or an Ad Hoc build with the device UDID registered in the Apple
+              Developer portal. It cannot be installed by dragging the IPA onto a phone.
             </p>
-            <span class="btn" aria-disabled="true">iOS: coming via TestFlight</span>
             <div class="download-links">
-              <a href="support.html">Read the iOS status</a>
+              <a href="support.html">Read the iOS install guide</a>
               <a href="https://github.com/sushant-me/renthub/releases/download/v1.0.0/RentHub-Project-Report.pdf" target="_blank" rel="noopener">Project report (PDF)</a>
             </div>
           </article>
@@ -471,7 +483,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="1200" height="380">
           <p>Rent Hub is a direct rental marketplace for Sydney, built by Arvion Technology. Browse, message and inspect without an agency in the middle.</p>
         </div>
         <div class="footer-col">

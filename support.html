@@ -17,7 +17,7 @@
   <header class="site-header" data-header>
     <div class="wrap header-inner">
       <a class="logo" href="index.html" aria-label="Rent Hub home">
-        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+        <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="1200" height="380">
       </a>
       <nav class="nav" aria-label="Main">
         <a href="index.html#what">What it does</a>
@@ -68,11 +68,15 @@
         </details>
         <details>
           <summary>How do I check the download?</summary>
-          <p>The download section lists the SHA-256 checksum for version 1.0.0. After downloading, compare the checksum shown by your file manager with the one on the page. They should match exactly.</p>
+          <p>The download section lists the SHA-256 checksum for version 1.0.1. After downloading, compare the checksum shown by your file manager with the one on the page. They should match exactly.</p>
+        </details>
+        <details>
+          <summary>Why does Android say the app is blocked?</summary>
+          <p>Because Rent Hub is installed outside Google Play, Play Protect may show a warning such as “unsafe app blocked” or “app not from a trusted source”. Tap <strong>More details</strong>, then <strong>Install anyway</strong>. The APK is release-signed; compare its SHA-256 with the value on the download page before installing.</p>
         </details>
         <details>
           <summary>Which Android versions are supported?</summary>
-          <p>Android 7.0 and later. The app is 63.5 MB and installs directly, without a store account.</p>
+          <p>Android 7.0 and later. The app is about 63 MB and installs directly, without a store account.</p>
         </details>
       </div>
 
@@ -104,7 +108,15 @@
       <div class="faq">
         <details>
           <summary>Where is the iOS app?</summary>
-          <p>The iPhone app is built from the same Flutter codebase as the Android app. Installing it on an iPhone needs an Apple Developer signing profile, so iOS is coming via TestFlight. The Android build is available now.</p>
+          <p>The iPhone and iPad app is built from the same Flutter codebase. A signed IPA is available in the download section. It is a distribution build signed by Arvion Technologies, not an App Store release.</p>
+        </details>
+        <details>
+          <summary>How do I install the signed iOS IPA?</summary>
+          <p>An iPhone will not install this IPA by tapping or dragging it. Use TestFlight: upload the IPA with the App Store Connect API key, invite testers by email, and they install through the TestFlight app. For direct installation without TestFlight, an Ad Hoc build is required, and each tester's device UDID must be registered in the Apple Developer portal first.</p>
+        </details>
+        <details>
+          <summary>Is the iOS app on the App Store?</summary>
+          <p>No. It is a signed test build only. Nothing has been submitted for App Store review or public release.</p>
         </details>
       </div>
 
@@ -149,7 +161,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="600" height="190">
+          <img src="assets/brand/renthub-lockup.png" alt="Rent Hub, Landlords and Tenants Direct" width="1200" height="380">
           <p>Rent Hub is a direct rental marketplace for Sydney, built by Arvion Technology. Browse, message and inspect without an agency in the middle.</p>
         </div>
         <div class="footer-col">

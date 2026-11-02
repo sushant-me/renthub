@@ -412,6 +412,28 @@ code {
 .hero .lede {
   margin-top: 20px;
 }
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.hero-points li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-points li::before {
+  content: "✓";
+  color: var(--pink);
+  font-weight: 700;
+}
+
 .hero-note {
   margin-top: 16px;
   font-size: 13px;
