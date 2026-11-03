@@ -218,11 +218,11 @@ code {
   transform: scale(0.985);
 }
 .btn-pink {
-  background: var(--pink-deep);
+  background: var(--pink);
   color: #fff;
 }
 .btn-pink:hover {
-  background: #b0124e;
+  background: var(--pink-deep);
   color: #fff;
 }
 .btn-outline {
@@ -407,7 +407,7 @@ code {
   line-height: 1.01;
 }
 .hero h1 .accent {
-  color: var(--pink-deep);
+  color: var(--pink);
 }
 .hero .lede {
   margin-top: 20px;
