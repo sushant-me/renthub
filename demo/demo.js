@@ -116,7 +116,7 @@
           <button class="role-card" data-action="role" data-role="tenant">
             <span class="glyph">⌂</span>
             <b>I'm looking for a rental</b>
-            <span>Browse, swipe, save and message owners as a tenant.</span>
+            <span>Browse, swipe, save and message landlords as a tenant.</span>
           </button>
           <button class="role-card" data-action="role" data-role="agent">
             <span class="glyph">⌘</span>
@@ -232,7 +232,7 @@
           </div>
         </div>
         <aside class="panel">
-          <h3 style="font-size:19px">${l.isAgent ? "Contact the agent" : "Message the owner"}</h3>
+          <h3 style="font-size:19px">Message the landlord</h3>
           <p class="small muted">${l.isAgent ? "Angela usually replies within a day." : "Peter usually replies within a day."} Phone numbers are shared after the first message, to keep spam calls off good landlords.</p>
           <div class="detail-actions" style="flex-direction:column">
             <button class="btn btn-pink" data-action="message" data-id="${l.id}">Message ${l.isAgent ? "agent" : "owner"}</button>

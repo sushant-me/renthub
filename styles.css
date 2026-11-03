@@ -31,9 +31,9 @@
   --ink-soft: #43434a;
   --muted: #6b6b73;
   --line: #e9e7e2;
-  --pink: #e0195f;
-  --pink-deep: #b2134f;
-  --pink-soft: #ffe8f1;
+  --pink: #d6157f;
+  --pink-deep: #a80e5c;
+  --pink-soft: #ffe4f3;
   --green: #0b9e6f;
   --green-soft: #e7f6f0;
   --amber: #b7791f;
@@ -298,7 +298,7 @@ code {
   flex-shrink: 0;
 }
 .logo img {
-  height: 52px;
+  height: 56px;
   width: auto;
 }
 .nav {
@@ -330,7 +330,7 @@ code {
   align-items: center;
   justify-content: center;
   width: 44px;
-  height: 44px;
+  height: 46px;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--paper);
