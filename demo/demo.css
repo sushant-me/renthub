@@ -56,13 +56,13 @@ img { display: block; max-width: 100%; }
 .demo-banner b { color: #fff; }
 
 .topbar {
-  min-height: 66px;
+  min-height: 74px;
   position: sticky; top: 0; z-index: 40;
   display: flex; align-items: center; gap: 18px;
   padding: 12px 20px; background: rgba(246, 245, 242, .92); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.brand img { width: 132px; height: 42px; object-fit: contain; }
+.brand img { width: auto; height: 54px; object-fit: contain; border-radius: 8px; }
 .topnav { display: flex; gap: 4px; margin-left: auto; }
 .navlink {
   border: 0; background: transparent; padding: 8px 12px; border-radius: 999px;

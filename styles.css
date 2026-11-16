@@ -285,7 +285,7 @@ code {
   box-shadow: 0 1px 0 rgba(11, 11, 12, 0.02);
 }
 .header-inner {
-  min-height: 74px;
+  min-height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -298,8 +298,9 @@ code {
   flex-shrink: 0;
 }
 .logo img {
-  height: 56px;
+  height: 68px;
   width: auto;
+  border-radius: 10px;
 }
 .nav {
   display: flex;
@@ -382,7 +383,7 @@ code {
     display: none;
   }
   .logo img {
-    height: 44px;
+    height: 52px;
   }
   .header-inner {
     min-height: 66px;
@@ -957,7 +958,7 @@ code {
   padding: clamp(56px, 8vw, 96px) 0;
 }
 .download-lockup {
-  height: 46px;
+  height: 58px;
   width: auto;
   margin-bottom: 26px;
 }
@@ -1085,7 +1086,7 @@ code {
   gap: 28px;
 }
 .footer-brand img {
-  height: 44px;
+  height: 58px;
   width: auto;
 }
 .footer-brand p {

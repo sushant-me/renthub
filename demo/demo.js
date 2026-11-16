@@ -109,7 +109,7 @@
       <section class="welcome">
         <div class="hero-copy">
           <div class="kicker">Interactive demo · sample Sydney data</div>
-          <h1>Rent direct.<br><em>Skip the agency.</em></h1>
+          <h1><em>Rent Hub.</em><br>Landlords list.<br><em>Tenants find.</em></h1>
           <p class="lead">Click through the product: browse live-looking listings, open a home, swipe to save, send a message and approve a synced Facebook post. No sign-up, nothing to install.</p>
         </div>
         <div class="roles">
