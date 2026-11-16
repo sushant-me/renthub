@@ -84,6 +84,7 @@ img { display: block; max-width: 100%; }
 .icon-btn { display: none; border: 1px solid var(--line); background: var(--paper); border-radius: 12px; width: 42px; height: 42px; font-size: 18px; }
 
 main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 110px; }
+.tabbar[hidden] { display: none; }
 .tabbar { display: none; }
 
 /* generic */
