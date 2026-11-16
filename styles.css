@@ -1318,3 +1318,26 @@ code {
   .group-photo { min-height: 164px; }
   .group-source { left: 7px; top: 7px; padding: 5px 7px; font-size: 9.5px; }
 }
+
+/* Tenant notice CTA on the feature section */
+.tenant-notice-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.tenant-notice-cta .eyebrow { color: rgba(255,255,255,.65); }
+.tenant-notice-cta .eyebrow .dot { background: var(--pink); }
+.tenant-notice-cta h3 { color: var(--paper); margin: 6px 0 4px; font-family: var(--display); font-size: clamp(20px, 2.4vw, 28px); line-height: 1.1; letter-spacing: -0.025em; }
+.tenant-notice-cta p { margin: 0; max-width: 620px; color: rgba(255,255,255,.72); font-size: 13.5px; line-height: 1.55; }
+.tenant-notice-cta .btn { flex-shrink: 0; }
+@media (max-width: 700px) {
+  .tenant-notice-cta { display: block; padding: 20px; }
+  .tenant-notice-cta .btn { margin-top: 16px; }
+}

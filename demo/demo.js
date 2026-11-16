@@ -26,6 +26,11 @@
     bookings: new Set(),
     messages: [],
     pending: [],
+    notices: [
+      { name: "Mia P.", initial: "M", text: "Hi, I’m a mum of 3 looking for a 2-bedroom house with a garage in the Bankstown area.", meta: "2-bed house · Bankstown · $750/wk", time: "2h ago" },
+      { name: "Liam T.", initial: "L", text: "Young family with a friendly dog seeking a 3-bed house with a yard, near schools and parks in Parramatta.", meta: "3-bed house · Parramatta · $950/wk", time: "1d ago" },
+      { name: "Olivia R.", initial: "O", text: "Solo professional working near the ferry. Looking for a tidy studio in Manly, non-smoker, move-in flexible.", meta: "Studio · Manly · $550/wk", time: "2d ago" },
+    ],
     threadId: "peter",
     audioTrack: null,
   };
@@ -118,6 +123,11 @@
             <b>I'm looking for a rental</b>
             <span>Browse, swipe, save and message landlords as a tenant.</span>
           </button>
+          <button class="role-card" data-action="tenant-notice">
+            <span class="glyph">✎</span>
+            <b>I'm a Tenant making Enquiries</b>
+            <span>Post a 40-word notice to landlords and agents.</span>
+          </button>
           <button class="role-card" data-action="role" data-role="agent">
             <span class="glyph">⌘</span>
             <b>I'm listing a place</b>
@@ -164,6 +174,30 @@
           <div class="meta">${escapeHtml(l.suburb)} ${l.postcode} · ${l.beds || "Studio"} bed · ${l.baths} bath · ${parkingLabel(l.parking)}</div>
         </div>
       </article>`;
+  }
+
+  function notices() {
+    const cards = state.notices.map((n) => `
+      <article class="notice-card">
+        <div class="notice-head">
+          <span class="avatar">${n.initial}</span>
+          <div><b>${escapeHtml(n.name)}</b><span>${escapeHtml(n.meta)}</span></div>
+          <span class="small muted">${escapeHtml(n.time)}</span>
+        </div>
+        <p>${escapeHtml(n.text)}</p>
+        <div class="notice-foot"><span class="pill green">Active notice</span><span class="small muted">14 days left</span></div>
+      </article>`).join("");
+    return `
+      <div class="screen-head notices-head">
+        <div>
+          <div class="kicker">Tenant notices</div>
+          <h1>I’m a Tenant<br>Making Enquiries</h1>
+          <p class="muted small">Post a short notice to Sydney landlords and agents. Up to 40 words, live for two weeks.</p>
+        </div>
+        <button class="btn btn-pink" data-action="notice-new">+ Post an enquiry</button>
+      </div>
+      <div class="notice-grid">${cards}</div>
+      <p class="small muted" style="margin-top:18px">This demo notice board uses sample data. Posting and replies work in the installed app and web console.</p>`;
   }
 
   function browse() {
@@ -404,6 +438,7 @@
     switch (state.screen) {
       case "welcome": html = welcome(); break;
       case "browse": html = browse(); break;
+      case "notices": html = notices(); break;
       case "detail": html = detail(); break;
       case "swipe": html = swipeCard(); break;
       case "saved": html = saved(); break;
@@ -527,6 +562,40 @@
     go("chat");
   }
 
+  function openNoticeModal() {
+    modalRoot.innerHTML = `
+      <div class="modal">
+        <div class="sheet" role="dialog" aria-modal="true" aria-label="Post a tenant enquiry">
+          <div class="sheet-head"><h2>I’m a Tenant making Enquiries</h2><button class="btn btn-ghost btn-sm" data-action="close-modal" aria-label="Close">Close</button></div>
+          <p class="small muted">Tell landlords and agents what you need. 40 words max, live for two weeks.</p>
+          <textarea id="noticeBio" rows="4" style="width:100%;margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:12px;font:inherit;resize:vertical" placeholder="Hi, I’m a mum of 3 looking for a 2-bedroom house with a garage in the Bankstown area."></textarea>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px">
+            <span id="noticeWords" class="small muted">0/40 words</span>
+            <button class="btn btn-pink" data-action="notice-post">Post enquiry</button>
+          </div>
+        </div>
+      </div>`;
+    const input = document.getElementById("noticeBio");
+    input.addEventListener("input", () => {
+      const words = input.value.trim() ? input.value.trim().split(/\s+/).length : 0;
+      document.getElementById("noticeWords").textContent = `${words}/40 words`;
+    });
+    input.focus();
+  }
+
+  function postNotice() {
+    const input = document.getElementById("noticeBio");
+    if (!input) return;
+    const text = input.value.trim();
+    const words = text ? text.split(/\s+/).length : 0;
+    if (!words) { say("Write a short notice first"); return; }
+    if (words > 40) { say("Keep it to 40 words or fewer"); return; }
+    state.notices.unshift({ name: "Mia P.", initial: "M", text, meta: "Your notice · Sydney", time: "Just now" });
+    closeModal();
+    render();
+    say("Enquiry posted to the demo notice board");
+  }
+
   function closeModal() { modalRoot.innerHTML = ""; }
 
   document.addEventListener("click", (e) => {
@@ -538,6 +607,9 @@
     const l = el.dataset.id ? getListing(el.dataset.id) : null;
     switch (action) {
       case "role": setRole(el.dataset.role); break;
+      case "tenant-notice": state.role = "tenant"; go("notices"); break;
+      case "notice-new": openNoticeModal(); break;
+      case "notice-post": postNotice(); break;
       case "open": state.listingId = el.dataset.id; go("detail"); break;
       case "back": go("browse"); break;
       case "save": {
