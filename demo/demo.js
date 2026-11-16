@@ -12,10 +12,11 @@
   const menuBtn = document.getElementById("menuBtn");
   const topnav = document.querySelector(".topnav");
 
+  const initialScreen = new URLSearchParams(window.location.search).get("screen");
   const state = {
     data: null,
-    role: null, // tenant | agent | admin
-    screen: "welcome",
+    role: initialScreen === "notices" ? "tenant" : null, // tenant | agent | admin
+    screen: initialScreen === "notices" ? "notices" : "welcome",
     listingId: null,
     chatId: null,
     filters: { q: "", type: "all", price: null, pets: false },
@@ -30,6 +31,8 @@
       { name: "Mia P.", initial: "M", text: "Hi, I’m a mum of 3 looking for a 2-bedroom house with a garage in the Bankstown area.", meta: "2-bed house · Bankstown · $750/wk", time: "2h ago" },
       { name: "Liam T.", initial: "L", text: "Young family with a friendly dog seeking a 3-bed house with a yard, near schools and parks in Parramatta.", meta: "3-bed house · Parramatta · $950/wk", time: "1d ago" },
       { name: "Olivia R.", initial: "O", text: "Solo professional working near the ferry. Looking for a tidy studio in Manly, non-smoker, move-in flexible.", meta: "Studio · Manly · $550/wk", time: "2d ago" },
+      { name: "Priya S.", initial: "P", text: "Relocating family needs a 2-bedroom unit close to Chatswood station and schools. Ready to move in.", meta: "2-bed unit · Chatswood · $800/wk", time: "3d ago" },
+      { name: "Alex K.", initial: "A", text: "Professional couple looking for a quiet 1-bedroom unit with parking near Newtown. No pets, long lease.", meta: "1-bed unit · Newtown · $650/wk", time: "4d ago" },
     ],
     threadId: "peter",
     audioTrack: null,
@@ -109,19 +112,42 @@
   }
 
   // ---------------------------------------------------------------- screens
+  function noticeRail() {
+    const card = (n) => `
+      <article class="notice-mini">
+        <div class="notice-mini-head"><span class="avatar">${n.initial}</span><b>${escapeHtml(n.name)}</b><span>${escapeHtml(n.time)}</span></div>
+        <p>${escapeHtml(n.text)}</p>
+        <span class="notice-mini-meta">${escapeHtml(n.meta)}</span>
+      </article>`;
+    return `
+      <aside class="notice-rail" aria-label="Latest tenant notices">
+        <div class="notice-rail-head">
+          <span class="notice-live"><span class="dot"></span> Tenant notices</span>
+          <span>40 words max</span>
+        </div>
+        <div class="notice-rail-window">
+          <div class="notice-rail-track">${state.notices.map(card).join("")}${state.notices.map(card).join("")}</div>
+        </div>
+        <button class="btn btn-outline btn-sm" data-action="notice-new">Post what you’re looking for</button>
+      </aside>`;
+  }
+
   function welcome() {
     return `
       <section class="welcome">
+        <div class="welcome-grid">
         <div class="hero-copy">
           <div class="kicker">Interactive demo · sample Sydney data</div>
           <h1><em>Rent Hub.</em><br>Landlords list.<br><em>Tenants find.</em></h1>
           <p class="lead">Click through the product: browse live-looking listings, open a home, swipe to save, send a message and approve a synced Facebook post. No sign-up, nothing to install.</p>
         </div>
+        ${noticeRail()}
+        </div>
         <div class="roles">
           <button class="role-card" data-action="role" data-role="tenant">
             <span class="glyph">⌂</span>
             <b>I'm looking for a rental</b>
-            <span>Browse, swipe, save and message landlords as a tenant.</span>
+            <span>Browse, swipe, save and message landlords direct, tenants can also post what they are looking for.</span>
           </button>
           <button class="role-card" data-action="tenant-notice">
             <span class="glyph">✎</span>
@@ -204,7 +230,7 @@
     const list = filteredListings();
     return `
       <div class="screen-head">
-        <div><div class="kicker">Sydney rentals</div><h1>Browse</h1></div>
+        <div><div class="kicker">Sydney rentals</div><h1>Browse <em>Rent Hub</em></h1></div>
         <div class="pill">${state.data.listings.length} homes in Sydney</div>
       </div>
       <div class="searchrow">
