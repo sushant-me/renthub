@@ -133,7 +133,7 @@ main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 110px; }
 .notice-live { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); }
 .notice-live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 .notice-rail-window { height: 410px; overflow: hidden; margin: 14px 0 14px; mask-image: linear-gradient(to bottom, #000 0, #000 92%, transparent 100%); }
-.notice-rail-track { display: flex; flex-direction: column; gap: 10px; animation: notice-scroll 26s linear infinite; }
+.notice-rail-track { display: flex; flex-direction: column; gap: 10px; animation: notice-scroll 26s linear 1.2s infinite; }
 .notice-rail:hover .notice-rail-track { animation-play-state: paused; }
 @keyframes notice-scroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
 @media (prefers-reduced-motion: reduce) { .notice-rail-track { animation: none; } }
@@ -154,6 +154,50 @@ main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 110px; }
   .notice-rail { display: none; }
 }
 
+/* landlord listing flow */
+.listing-head { align-items: flex-start; }
+.stepbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 16px; }
+.stepbar .step { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); background: var(--paper); color: var(--muted); border-radius: 999px; padding: 7px 12px; font-size: 12px; font-weight: 600; }
+.stepbar .step b { width: 18px; height: 18px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--mist); color: var(--muted); font-size: 10px; }
+.stepbar .step.active { border-color: var(--pink); color: var(--pink-dark); background: var(--pink-soft); }
+.stepbar .step.active b { background: var(--pink); color: #fff; }
+.listing-layout { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 18px; align-items: start; }
+.listing-form { padding: 20px; }
+.form-section { border-top: 1px solid var(--line); padding: 18px 0 4px; }
+.form-section:first-child { border-top: 0; padding-top: 0; }
+.form-section h2 { font-size: 17px; margin: 0 0 13px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 6px; color: var(--ink); font-size: 12.5px; font-weight: 600; }
+.field-wide { grid-column: 1 / -1; }
+.field input, .field select, .field textarea { width: 100%; border: 1px solid var(--line); border-radius: 11px; background: var(--paper); color: var(--ink); padding: 10px 11px; font: inherit; font-weight: 400; }
+.field textarea { resize: vertical; min-height: 92px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--pink-soft); border-color: var(--pink); }
+.photo-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 14px 0 2px; font-size: 13px; }
+.photo-row > div:first-child span { display: block; }
+.photo-slots { display: flex; gap: 6px; }
+.photo-slot, .photo-add { width: 48px; height: 40px; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--mist); }
+.photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+.photo-add { color: var(--pink-dark); font-size: 20px; line-height: 1; background: var(--pink-soft); border-color: transparent; }
+.checkline { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: var(--ink-soft); margin: 8px 0 16px; }
+.checkline input { margin-top: 2px; accent-color: var(--pink); }
+.publish-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.listing-preview { position: sticky; top: 86px; padding: 14px; }
+.preview-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+.preview-card { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--paper); }
+.preview-card > img { width: 100%; height: 150px; object-fit: cover; display: block; }
+.preview-card .body { padding: 12px; }
+.preview-card .price { font-size: 22px; font-weight: 800; }
+.preview-card .price small { font-size: 11px; font-weight: 600; color: var(--muted); }
+.preview-card h3 { font-size: 15px; line-height: 1.25; margin: 5px 0; }
+.preview-card .meta { color: var(--muted); font-size: 11px; }
+.preview-note { color: var(--muted); font-size: 11.5px; line-height: 1.45; margin-top: 12px; }
+@media (max-width: 980px) {
+  .listing-layout { grid-template-columns: 1fr; }
+  .listing-preview { position: static; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field-wide { grid-column: auto; }
+  .photo-row { align-items: flex-start; flex-direction: column; }
+}
 /* tenant notices */
 .notice-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .notice-card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
@@ -171,6 +215,7 @@ main { max-width: 1180px; margin: 0 auto; padding: 22px 20px 110px; }
 
 /* browse */
 .screen-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 6px 0 16px; }
+.browse-head-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
 .screen-head h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1; }
 .searchrow { display: flex; gap: 10px; margin-bottom: 12px; }

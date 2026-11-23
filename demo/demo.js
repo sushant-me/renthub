@@ -82,10 +82,10 @@
     tabbar.hidden = !loggedIn || state.screen === "welcome";
     savedCountEl.textContent = state.saved.size;
     roleChip.hidden = !loggedIn;
-    roleChip.textContent = state.role === "agent" ? "Agent demo" : state.role === "admin" ? "Admin demo" : "Tenant demo";
+    roleChip.textContent = state.role === "agent" ? "Agent demo" : state.role === "admin" ? "Admin demo" : state.role === "landlord" ? "Landlord demo" : "Tenant demo";
     document.querySelectorAll(".navlink").forEach((b) => {
       const go = b.dataset.go;
-      const active = go === state.screen || (go === "browse" && state.screen === "detail");
+      const active = go === state.screen || (go === "browse" && state.screen === "detail") || (go === "list-property" && state.screen === "list-property");
       b.setAttribute("aria-current", active ? "true" : "false");
     });
     document.querySelectorAll(".tab").forEach((b) => {
@@ -138,8 +138,8 @@
         <div class="welcome-grid">
         <div class="hero-copy">
           <div class="kicker">Interactive demo · sample Sydney data</div>
-          <h1><em>Rent Hub.</em><br>Landlords list.<br><em>Tenants find.</em></h1>
-          <p class="lead">Click through the product: browse live-looking listings, open a home, swipe to save, send a message and approve a synced Facebook post. No sign-up, nothing to install.</p>
+          <h1><em>RENT HUB</em><br>Landlords list<br><em>Tenants find</em></h1>
+          <p class="lead">Click through Sydney rentals listed by landlords or their agent, skip the runaround, and message the owner directly.</p>
         </div>
         ${noticeRail()}
         </div>
@@ -154,10 +154,10 @@
             <b>I'm a Tenant making Enquiries</b>
             <span>Post a 40-word notice to landlords and agents.</span>
           </button>
-          <button class="role-card" data-action="role" data-role="agent">
+          <button class="role-card" data-action="list-property">
             <span class="glyph">⌘</span>
             <b>I'm listing a place</b>
-            <span>Open the agent dashboard and publish flow.</span>
+            <span>Create a landlord listing — photos, rent and details.</span>
           </button>
           <button class="role-card" data-action="role" data-role="admin">
             <span class="glyph">☰</span>
@@ -229,9 +229,9 @@
   function browse() {
     const list = filteredListings();
     return `
-      <div class="screen-head">
+      <div class="screen-head browse-head">
         <div><div class="kicker">Sydney rentals</div><h1>Browse <em>Rent Hub</em></h1></div>
-        <div class="pill">${state.data.listings.length} homes in Sydney</div>
+        <div class="browse-head-actions"><button class="btn btn-outline btn-sm" data-go="notices">Tenant notice board</button><span class="pill">${state.data.listings.length} homes</span></div>
       </div>
       <div class="searchrow">
         <label class="searchbox">
@@ -403,11 +403,100 @@
       </div>`;
   }
 
+  function listProperty() {
+    const sample = state.data.listings[0];
+    return `
+      <div class="screen-head listing-head">
+        <div>
+          <div class="kicker">Landlord listing</div>
+          <h1>List a property</h1>
+          <p class="muted small">One clear flow: property, details, photos and review. Nothing is published until you confirm.</p>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-go="browse">Cancel</button>
+      </div>
+      <div class="stepbar" aria-label="Listing steps">
+        <span class="step active"><b>1</b> Property</span><span class="step"><b>2</b> Details</span><span class="step"><b>3</b> Photos</span><span class="step"><b>4</b> Review</span>
+      </div>
+      <div class="listing-layout">
+        <div class="panel listing-form">
+          <section class="form-section">
+            <h2>1. The property</h2>
+            <div class="form-grid">
+              <label class="field">Property type
+                <select id="lpType"><option value="unit">Unit or apartment</option><option value="house">House</option><option value="studio">Studio</option><option value="granny-flat">Granny flat</option><option value="room">Room</option><option value="sharehouse">Sharehouse</option></select>
+              </label>
+              <label class="field">Suburb
+                <input id="lpSuburb" value="Bondi" autocomplete="off" />
+              </label>
+              <label class="field field-wide">Street address
+                <input id="lpAddress" placeholder="12/34 Campbell Parade" />
+              </label>
+              <label class="field">Weekly rent (AUD)
+                <input id="lpRent" type="number" min="50" value="780" inputmode="numeric" />
+              </label>
+              <label class="field">Bond (AUD)
+                <input id="lpBond" type="number" min="0" value="3120" inputmode="numeric" />
+              </label>
+              <label class="field">Bedrooms
+                <select id="lpBeds"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select>
+              </label>
+              <label class="field">Bathrooms
+                <select id="lpBaths"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+              </label>
+              <label class="field">Parking
+                <select id="lpParking"><option value="none">No parking</option><option value="street">Street</option><option value="carspot">1 car space</option><option value="garage" selected>Garage</option></select>
+              </label>
+              <label class="field">Available from
+                <input id="lpDate" type="date" value="2026-12-12" />
+              </label>
+            </div>
+          </section>
+          <section class="form-section">
+            <h2>2. Listing details</h2>
+            <label class="field">Headline
+              <input id="lpTitle" value="Bright 2-bed unit steps from Bondi Beach" maxlength="90" />
+            </label>
+            <label class="field">Description
+              <textarea id="lpDescription" rows="4">Sunny two-bedroom apartment with a balcony, built-in wardrobes and a secure garage. Walk to the beach, cafes and buses.</textarea>
+            </label>
+            <div class="photo-row">
+              <div><b>Photos</b><span class="small muted">Up to 6 · first photo is the cover</span></div>
+              <div class="photo-slots">
+                ${(sample?.photos || []).slice(0,3).map((src) => `<span class="photo-slot"><img src="${src}" alt="" /></span>`).join("")}
+                <button class="photo-add" type="button" data-action="demo-photo" aria-label="Add another photo">+</button>
+              </div>
+            </div>
+          </section>
+          <section class="form-section">
+            <h2>3. Review</h2>
+            <label class="checkline"><input type="checkbox" id="lpConfirm" checked /> I'm the owner or acting for the owner, and the details are correct.</label>
+            <div class="publish-row">
+              <button class="btn btn-pink" type="button" data-action="publish-listing">Publish listing</button>
+              <span class="small muted">Free for private landlords · agent listings use a token</span>
+            </div>
+          </section>
+        </div>
+        <aside class="listing-preview panel">
+          <div class="preview-head"><span class="notice-live"><span class="dot"></span> Live preview</span><span class="small muted">How tenants see it</span></div>
+          <article class="preview-card">
+            <img src="${sample?.photos?.[0] || ''}" alt="" />
+            <div class="body">
+              <div class="price" id="lpPreviewRent">$${Number(780).toLocaleString("en-AU")}<small>/wk</small></div>
+              <h3 id="lpPreviewTitle">Bright 2-bed unit steps from Bondi Beach</h3>
+              <div class="meta"><span id="lpPreviewType">Unit</span> · <span id="lpPreviewSuburb">Bondi</span> · 2 bed · 2 bath</div>
+              <p class="small muted" id="lpPreviewDesc">Sunny two-bedroom apartment with a balcony, built-in wardrobes and a secure garage.</p>
+            </div>
+          </article>
+          <div class="preview-note">Your listing appears in Browse and the home feed as soon as you publish.</div>
+        </aside>
+      </div>`;
+  }
+
   function dashboard() {
     const mine = state.data.listings.filter((l) => l.isAgent);
     const views = mine.reduce((n, l) => n + l.views, 0);
     return `
-      <div class="screen-head"><div><div class="kicker">Agent demo</div><h1>Dashboard</h1><p class="muted small">Sharp Realty · Angela Sharp</p></div><button class="btn btn-pink" data-action="new-listing">+ New listing</button></div>
+      <div class="screen-head"><div><div class="kicker">Agent demo</div><h1>Dashboard</h1><p class="muted small">Sharp Realty · Angela Sharp</p></div><button class="btn btn-pink" data-go="list-property">+ New listing</button></div>
       <div class="stats">
         <div class="stat"><b>${mine.length || 1}</b><span>active listings</span></div>
         <div class="stat"><b>${views + 1242}</b><span>total views</span></div>
@@ -464,6 +553,7 @@
     switch (state.screen) {
       case "welcome": html = welcome(); break;
       case "browse": html = browse(); break;
+      case "list-property": html = listProperty(); break;
       case "notices": html = notices(); break;
       case "detail": html = detail(); break;
       case "swipe": html = swipeCard(); break;
@@ -488,6 +578,7 @@
         document.querySelectorAll("#galleryDots .dot").forEach((d, n) => d.setAttribute("aria-current", n === i ? "true" : "false"));
       });
     }
+    if (state.screen === "list-property") bindListingPreview();
     if (state.screen === "swipe") bindSwipe();
     if (state.screen === "chat") scrollChat();
   }
@@ -622,6 +713,65 @@
     say("Enquiry posted to the demo notice board");
   }
 
+  function bindListingPreview() {
+    const map = [["lpTitle", "lpPreviewTitle"], ["lpSuburb", "lpPreviewSuburb"], ["lpType", "lpPreviewType"], ["lpDescription", "lpPreviewDesc"]];
+    map.forEach(([from, to]) => {
+      const input = document.getElementById(from);
+      const out = document.getElementById(to);
+      if (!input || !out) return;
+      const sync = () => { out.textContent = from === "lpType" ? typeLabel(input.value) : input.value; };
+      input.addEventListener("input", sync);
+      input.addEventListener("change", sync);
+      sync();
+    });
+    const rent = document.getElementById("lpRent");
+    const rentOut = document.getElementById("lpPreviewRent");
+    if (rent && rentOut) {
+      const syncRent = () => { rentOut.innerHTML = money(Number(rent.value) || 0) + "<small>/wk</small>"; };
+      rent.addEventListener("input", syncRent);
+      syncRent();
+    }
+  }
+
+  function publishListing() {
+    const get = (id) => document.getElementById(id);
+    const title = get("lpTitle")?.value.trim();
+    const suburb = get("lpSuburb")?.value.trim();
+    const rent = Number(get("lpRent")?.value);
+    const confirm = get("lpConfirm")?.checked;
+    if (!title || !suburb || !rent || rent < 50) { say("Add a headline, suburb and weekly rent first"); return; }
+    if (!confirm) { say("Please confirm you're the owner or acting for the owner"); return; }
+    const photos = state.data.listings[0]?.photos?.slice(0, 3) || [];
+    const listing = {
+      id: "demo-" + Date.now(),
+      title,
+      type: get("lpType")?.value || "unit",
+      rent,
+      bond: Number(get("lpBond")?.value) || rent * 4,
+      suburb,
+      postcode: "2026",
+      beds: get("lpBeds")?.value || "2",
+      baths: Number(get("lpBaths")?.value) || 1,
+      parking: get("lpParking")?.value || "none",
+      petFriendly: false,
+      photos,
+      description: get("lpDescription")?.value.trim() || "",
+      available: get("lpDate")?.value || "Available now",
+      inspections: [{ day: "Saturday", time: "10:00am" }, { day: "Saturday", time: "10:15am" }],
+      views: 0,
+      isAgent: false,
+      featured: false,
+      source: "native",
+      sourceAuthor: null,
+      sourceUrl: null,
+      music: null,
+    };
+    state.data.listings.unshift(listing);
+    state.listingId = listing.id;
+    go("detail");
+    say("Listing published in the demo");
+  }
+
   function closeModal() { modalRoot.innerHTML = ""; }
 
   document.addEventListener("click", (e) => {
@@ -634,6 +784,9 @@
     switch (action) {
       case "role": setRole(el.dataset.role); break;
       case "tenant-notice": state.role = "tenant"; go("notices"); break;
+      case "list-property": state.role = "landlord"; go("list-property"); break;
+      case "demo-photo": say("Photo picker runs in the installed app"); break;
+      case "publish-listing": publishListing(); break;
       case "notice-new": openNoticeModal(); break;
       case "notice-post": postNotice(); break;
       case "open": state.listingId = el.dataset.id; go("detail"); break;
@@ -723,7 +876,7 @@
         break;
       }
       case "signout": state.role = null; go("welcome"); say("Signed out of the demo"); break;
-      case "new-listing": say("The create wizard (photos, details, review) lives in the installed app"); break;
+      case "new-listing": go("list-property"); break;
       case "run-sync": say("Sync started (demo): 8 imported, 0 updated, 0 skipped"); break;
       case "approve": {
         const p = state.pending.find((x) => x.id === el.dataset.id);
@@ -762,7 +915,7 @@
   // ---------------------------------------------------------------- PWA
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("sw.js").catch(() => {
+      navigator.serviceWorker.register("sw.js?v=20261123", { updateViaCache: "none" }).then((reg) => reg.update()).catch(() => {
         /* offline support is optional */
       });
     });
