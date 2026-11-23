@@ -19,7 +19,7 @@
     screen: initialScreen === "notices" ? "notices" : "welcome",
     listingId: null,
     chatId: null,
-    filters: { q: "", type: "all", price: null, pets: false },
+    filters: { q: "", type: "all", price: null, pets: false, sort: "featured" },
     saved: new Set(loadSaved()),
     deck: [],
     deckIndex: 0,
@@ -36,6 +36,7 @@
     ],
     threadId: "peter",
     audioTrack: null,
+    listingStep: 1,
   };
 
   function loadSaved() {
@@ -79,7 +80,7 @@
 
   function updateChrome() {
     const loggedIn = Boolean(state.role);
-    tabbar.hidden = !loggedIn || state.screen === "welcome";
+    tabbar.hidden = !loggedIn || state.screen === "welcome" || state.screen === "list-property";
     savedCountEl.textContent = state.saved.size;
     roleChip.hidden = !loggedIn;
     roleChip.textContent = state.role === "agent" ? "Agent demo" : state.role === "admin" ? "Admin demo" : state.role === "landlord" ? "Landlord demo" : "Tenant demo";
@@ -143,26 +144,35 @@
         </div>
         ${noticeRail()}
         </div>
+        <div class="hero-stats" aria-label="Demo snapshot">
+          <span><b>${state.data.listings.length}</b> Sydney homes</span>
+          <span><b>${state.notices.length}</b> tenant notices</span>
+          <span><b>100%</b> direct</span>
+        </div>
         <div class="roles">
-          <button class="role-card" data-action="role" data-role="tenant">
-            <span class="glyph">⌂</span>
-            <b>I'm looking for a rental</b>
-            <span>Browse, swipe, save and message landlords direct, tenants can also post what they are looking for.</span>
+          <button class="role-card role-photo" data-action="role" data-role="tenant">
+            <img class="role-bg" src="${state.data.listings[0]?.photos?.[0] || "img/syd-apartment-block.jpg"}" alt="" loading="lazy" />
+            <span class="role-scrim" aria-hidden="true"></span>
+            <span class="role-content"><span class="glyph">⌂</span><b>I'm looking for a rental</b><span>Browse, swipe, save and message landlords direct — and post what you're looking for.</span></span>
+            <span class="role-go" aria-hidden="true">→</span>
           </button>
-          <button class="role-card" data-action="tenant-notice">
-            <span class="glyph">✎</span>
-            <b>I'm a Tenant making Enquiries</b>
-            <span>Post a 40-word notice to landlords and agents.</span>
+          <button class="role-card role-photo" data-action="tenant-notice">
+            <img class="role-bg" src="${state.data.listings[2]?.photos?.[0] || "img/syd-house-weatherboard.jpg"}" alt="" loading="lazy" />
+            <span class="role-scrim" aria-hidden="true"></span>
+            <span class="role-content"><span class="glyph">✎</span><b>I'm a Tenant making Enquiries</b><span>Post a short 40-word notice to Sydney landlords and agents.</span></span>
+            <span class="role-go" aria-hidden="true">→</span>
           </button>
-          <button class="role-card" data-action="list-property">
-            <span class="glyph">⌘</span>
-            <b>I'm listing a place</b>
-            <span>Create a landlord listing — photos, rent and details.</span>
+          <button class="role-card role-photo" data-action="list-property">
+            <img class="role-bg" src="${state.data.listings[1]?.photos?.[0] || "img/syd-apartment-white.jpg"}" alt="" loading="lazy" />
+            <span class="role-scrim" aria-hidden="true"></span>
+            <span class="role-content"><span class="glyph">⌘</span><b>I'm listing a place</b><span>Create a landlord listing — photos, rent and details in one flow.</span></span>
+            <span class="role-go" aria-hidden="true">→</span>
           </button>
-          <button class="role-card" data-action="role" data-role="admin">
-            <span class="glyph">☰</span>
-            <b>Admin console</b>
-            <span>Review the Facebook sync queue and approve posts.</span>
+          <button class="role-card role-photo" data-action="role" data-role="admin">
+            <img class="role-bg" src="img/syd-apartment-sky.jpg" alt="" loading="lazy" />
+            <span class="role-scrim" aria-hidden="true"></span>
+            <span class="role-content"><span class="glyph">☰</span><b>Admin console</b><span>Review the Facebook sync queue and approve posts.</span></span>
+            <span class="role-go" aria-hidden="true">→</span>
           </button>
         </div>
         <p class="demo-note">Account, payments and Facebook posting run in the installed app and web console. This page is a read-only product tour built from real seeded data.</p>
@@ -172,27 +182,32 @@
   function filteredListings() {
     const f = state.filters;
     const q = f.q.trim().toLowerCase();
-    return state.data.listings.filter((l) => {
-      if (f.type === "house" && l.type !== "house") return false;
-      if (f.type === "unit" && l.type !== "unit" && l.type !== "studio") return false;
+    const list = state.data.listings.filter((l) => {
+      if (f.type !== "all" && l.type !== f.type) return false;
       if (f.price && l.rent > f.price) return false;
       if (f.pets && !l.petFriendly) return false;
       if (!q) return true;
       return (l.title + " " + l.suburb + " " + l.postcode).toLowerCase().includes(q);
     });
+    if (f.sort === "price-low") list.sort((a, b) => a.rent - b.rent);
+    else if (f.sort === "price-high") list.sort((a, b) => b.rent - a.rent);
+    else list.sort((a, b) => Number(b.featured) - Number(a.featured) || b.views - a.views);
+    return list;
   }
 
   function card(l) {
     const saved = state.saved.has(l.id);
+    const badges = [l.featured ? "Featured" : "", l.source === "facebook" ? "Synced from Facebook" : l.isAgent ? "Agent" : ""].filter(Boolean);
     return `
       <article class="listing-card">
-        <button class="shot" data-action="open" data-id="${l.id}" aria-label="Open ${escapeHtml(l.title)}${l.featured ? ", featured" : ""}${l.source === "facebook" ? ", synced from Facebook" : l.isAgent ? ", agent" : ""}">
+        <button class="shot" data-action="open" data-id="${l.id}" aria-label="Open ${escapeHtml(l.title)}${badges.length ? `, ${badges.join(", ")}` : ""}">
           <img src="${l.photos[0]}" alt="" loading="lazy" width="600" height="450" />
           <span class="badges">
             ${l.featured ? '<span class="pill ink">Featured</span>' : ""}
             ${l.source === "facebook" ? '<span class="pill green">Synced from Facebook</span>' : l.isAgent ? '<span class="pill">Agent</span>' : ""}
           </span>
         </button>
+        <span class="photo-count">▧ ${l.photos.length}</span>
         <button class="heart" data-action="save" data-id="${l.id}" aria-pressed="${saved}" aria-label="${saved ? "Remove from saved" : "Save home"}">${saved ? "♥" : "♡"}</button>
         <div class="body">
           <div class="price">${money(l.rent)}<small>/wk</small></div>
@@ -241,9 +256,15 @@
         <button class="btn btn-pink" data-action="search">Search</button>
       </div>
       <div class="filters" role="group" aria-label="Filters">
-        ${[["all", "All"], ["house", "Houses"], ["unit", "Units"]].map(([k, label]) => `<button class="chip" data-action="filter" data-type="${k}" aria-pressed="${state.filters.type === k}">${label}</button>`).join("")}
-        <button class="chip" data-action="filter" data-price="700" aria-pressed="${state.filters.price === 700}">Under $700</button>
+        ${[["all", "All"], ["house", "Houses"], ["unit", "Units"], ["granny-flat", "Granny flats"], ["studio", "Studios"], ["room", "Rooms"], ["sharehouse", "Sharehouses"]].map(([k, label]) => `<button class="chip" data-action="filter" data-type="${k}" aria-pressed="${state.filters.type === k}">${label}</button>`).join("")}
+        <span class="filter-divider" aria-hidden="true"></span>
+        <button class="chip" data-action="filter" data-price="600" aria-pressed="${state.filters.price === 600}">Under $600</button>
+        <button class="chip" data-action="filter" data-price="800" aria-pressed="${state.filters.price === 800}">Under $800</button>
         <button class="chip" data-action="filter" data-pets="1" aria-pressed="${state.filters.pets}">Pets okay</button>
+        <span class="filter-divider" aria-hidden="true"></span>
+        <button class="chip" data-action="filter" data-sort="featured" aria-pressed="${state.filters.sort === "featured"}">Featured</button>
+        <button class="chip" data-action="filter" data-sort="price-low" aria-pressed="${state.filters.sort === "price-low"}">Lowest rent</button>
+        <button class="chip" data-action="filter" data-sort="price-high" aria-pressed="${state.filters.sort === "price-high"}">Highest rent</button>
       </div>
       <p class="results">${list.length} ${list.length === 1 ? "home" : "homes"}${state.filters.q ? ` for “${escapeHtml(state.filters.q)}”` : " in Sydney"}</p>
       ${list.length ? `<div class="grid">${list.map(card).join("")}</div>` : `<div class="empty"><b>Nothing matches yet</b>Try another suburb or clear the filters.</div>`}`;
@@ -415,11 +436,11 @@
         <button class="btn btn-ghost btn-sm" data-go="browse">Cancel</button>
       </div>
       <div class="stepbar" aria-label="Listing steps">
-        <span class="step active"><b>1</b> Property</span><span class="step"><b>2</b> Details</span><span class="step"><b>3</b> Photos</span><span class="step"><b>4</b> Review</span>
+        <button class="step active" data-action="listing-step" data-step="1"><b>1</b> Property</button><button class="step" data-action="listing-step" data-step="2"><b>2</b> Details</button><button class="step" data-action="listing-step" data-step="3"><b>3</b> Review</button>
       </div>
       <div class="listing-layout">
         <div class="panel listing-form">
-          <section class="form-section">
+          <section class="form-section form-step" data-step="1">
             <h2>1. The property</h2>
             <div class="form-grid">
               <label class="field">Property type
@@ -429,7 +450,7 @@
                 <input id="lpSuburb" value="Bondi" autocomplete="off" />
               </label>
               <label class="field field-wide">Street address
-                <input id="lpAddress" placeholder="12/34 Campbell Parade" />
+                <input id="lpAddress" value="12/34 Campbell Parade" placeholder="12/34 Campbell Parade" />
               </label>
               <label class="field">Weekly rent (AUD)
                 <input id="lpRent" type="number" min="50" value="780" inputmode="numeric" />
@@ -451,7 +472,7 @@
               </label>
             </div>
           </section>
-          <section class="form-section">
+          <section class="form-section form-step" data-step="2" hidden>
             <h2>2. Listing details</h2>
             <label class="field">Headline
               <input id="lpTitle" value="Bright 2-bed unit steps from Bondi Beach" maxlength="90" />
@@ -467,14 +488,26 @@
               </div>
             </div>
           </section>
-          <section class="form-section">
+          <section class="form-section form-step" data-step="3" hidden>
             <h2>3. Review</h2>
-            <label class="checkline"><input type="checkbox" id="lpConfirm" checked /> I'm the owner or acting for the owner, and the details are correct.</label>
-            <div class="publish-row">
-              <button class="btn btn-pink" type="button" data-action="publish-listing">Publish listing</button>
-              <span class="small muted">Free for private landlords · agent listings use a token</span>
+            <div class="review-card" aria-live="polite">
+              <img id="lpReviewPhoto" src="${sample?.photos?.[0] || ''}" alt="" />
+              <div>
+                <div class="price"><span id="lpReviewRent">$780</span><small>/wk</small></div>
+                <h3 id="lpReviewTitle">Bright 2-bed unit steps from Bondi Beach</h3>
+                <p class="small muted" id="lpReviewMeta">Unit · Bondi · 2 bed · 2 bath · Garage</p>
+                <p class="small" id="lpReviewDesc">Sunny two-bedroom apartment with a balcony, built-in wardrobes and a secure garage.</p>
+              </div>
             </div>
+            <label class="checkline"><input type="checkbox" id="lpConfirm" checked /> I'm the owner or acting for the owner, and the details are correct.</label>
           </section>
+          <div class="wizard-nav">
+            <button class="btn btn-ghost" type="button" data-action="listing-back" id="lpBack" disabled>← Back</button>
+            <span class="wizard-step-label" id="lpStepLabel">Step 1 of 3 · Property</span>
+            <button class="btn btn-pink" type="button" data-action="listing-next" id="lpNext">Continue →</button>
+            <button class="btn btn-pink" type="button" data-action="publish-listing" id="lpPublish" hidden>Publish listing</button>
+          </div>
+          <p class="small muted wizard-note">Free for private landlords · agent listings use a token. Nothing is published until you confirm.</p>
         </div>
         <aside class="listing-preview panel">
           <div class="preview-head"><span class="notice-live"><span class="dot"></span> Live preview</span><span class="small muted">How tenants see it</span></div>
@@ -685,18 +718,50 @@
         <div class="sheet" role="dialog" aria-modal="true" aria-label="Post a tenant enquiry">
           <div class="sheet-head"><h2>I’m a Tenant making Enquiries</h2><button class="btn btn-ghost btn-sm" data-action="close-modal" aria-label="Close">Close</button></div>
           <p class="small muted">Tell landlords and agents what you need. 40 words max, live for two weeks.</p>
-          <textarea id="noticeBio" rows="4" style="width:100%;margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:12px;font:inherit;resize:vertical" placeholder="Hi, I’m a mum of 3 looking for a 2-bedroom house with a garage in the Bankstown area."></textarea>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px">
+          <div class="notice-form-grid">
+            <label class="field">Looking for
+              <select id="noticeType"><option value="house">House</option><option value="unit" selected>Unit or apartment</option><option value="studio">Studio</option><option value="granny-flat">Granny flat</option><option value="room">Room</option><option value="sharehouse">Sharehouse</option></select>
+            </label>
+            <label class="field">Area
+              <input id="noticeSuburb" value="Bankstown" />
+            </label>
+            <label class="field">Budget / week
+              <input id="noticeRent" type="number" min="50" value="750" inputmode="numeric" />
+            </label>
+          </div>
+          <textarea id="noticeBio" class="notice-textarea" rows="4" placeholder="Hi, I’m a mum of 3 looking for a 2-bedroom house with a garage in the Bankstown area."></textarea>
+          <div class="word-meter"><span id="noticeMeter"></span></div>
+          <div class="notice-live-preview">
+            <div class="notice-live-preview-head"><span class="avatar">M</span><span><b>Your notice</b><small id="noticePreviewMeta">Unit · Bankstown · $750/wk</small></span></div>
+            <p id="noticePreviewText">Your notice will appear here.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px">
             <span id="noticeWords" class="small muted">0/40 words</span>
             <button class="btn btn-pink" data-action="notice-post">Post enquiry</button>
           </div>
         </div>
       </div>`;
     const input = document.getElementById("noticeBio");
-    input.addEventListener("input", () => {
+    const update = () => {
       const words = input.value.trim() ? input.value.trim().split(/\s+/).length : 0;
-      document.getElementById("noticeWords").textContent = `${words}/40 words`;
+      const meter = document.getElementById("noticeMeter");
+      const counter = document.getElementById("noticeWords");
+      counter.textContent = `${words}/40 words`;
+      counter.classList.toggle("over", words > 40);
+      if (meter) meter.style.width = `${Math.min(100, (words / 40) * 100)}%`;
+      const type = document.getElementById("noticeType")?.value || "unit";
+      const area = document.getElementById("noticeSuburb")?.value || "Sydney";
+      const rent = Number(document.getElementById("noticeRent")?.value) || 0;
+      const meta = document.getElementById("noticePreviewMeta");
+      const preview = document.getElementById("noticePreviewText");
+      if (meta) meta.textContent = `${typeLabel(type)} · ${area} · ${money(rent)}/wk`;
+      if (preview) preview.textContent = input.value.trim() || "Your notice will appear here.";
+    };
+    ["input", "change"].forEach((evt) => {
+      input.addEventListener(evt, update);
+      ["noticeType", "noticeSuburb", "noticeRent"].forEach((id) => document.getElementById(id)?.addEventListener(evt, update));
     });
+    update();
     input.focus();
   }
 
@@ -707,10 +772,66 @@
     const words = text ? text.split(/\s+/).length : 0;
     if (!words) { say("Write a short notice first"); return; }
     if (words > 40) { say("Keep it to 40 words or fewer"); return; }
-    state.notices.unshift({ name: "Mia P.", initial: "M", text, meta: "Your notice · Sydney", time: "Just now" });
+    const type = document.getElementById("noticeType")?.value || "unit";
+    const area = document.getElementById("noticeSuburb")?.value.trim() || "Sydney";
+    const rent = Number(document.getElementById("noticeRent")?.value) || 0;
+    state.notices.unshift({ name: "Mia P.", initial: "M", text, meta: `${typeLabel(type)} · ${area} · ${money(rent)}/wk`, time: "Just now" });
     closeModal();
     render();
     say("Enquiry posted to the demo notice board");
+  }
+
+  function setListingStep(step) {
+    state.listingStep = Math.min(3, Math.max(1, step));
+    document.querySelectorAll(".form-step").forEach((section) => {
+      section.hidden = Number(section.dataset.step) !== state.listingStep;
+    });
+    document.querySelectorAll(".stepbar .step").forEach((button) => {
+      button.classList.toggle("active", Number(button.dataset.step) <= state.listingStep);
+    });
+    const back = document.getElementById("lpBack");
+    const next = document.getElementById("lpNext");
+    const publish = document.getElementById("lpPublish");
+    const label = document.getElementById("lpStepLabel");
+    if (back) back.disabled = state.listingStep === 1;
+    if (next) next.hidden = state.listingStep === 3;
+    if (publish) publish.hidden = state.listingStep !== 3;
+    if (label) label.textContent = `Step ${state.listingStep} of 3 · ${["Property", "Details", "Review"][state.listingStep - 1]}`;
+    if (state.listingStep === 3) syncListingReview();
+  }
+
+  function nextListingStep() {
+    if (state.listingStep === 1) {
+      for (const id of ["lpSuburb", "lpRent", "lpAddress"]) {
+        const field = document.getElementById(id);
+        if (field && !field.value.trim()) { field.focus(); say("Fill in the property details to continue"); return; }
+      }
+    }
+    if (state.listingStep === 2) {
+      for (const id of ["lpTitle", "lpDescription"]) {
+        const field = document.getElementById(id);
+        if (field && !field.value.trim()) { field.focus(); say("Add a headline and description"); return; }
+      }
+    }
+    setListingStep(state.listingStep + 1);
+  }
+
+  function syncListingReview() {
+    const get = (id) => document.getElementById(id);
+    const rent = Number(get("lpRent")?.value) || 0;
+    const title = get("lpTitle")?.value || "Your listing";
+    const suburb = get("lpSuburb")?.value || "Sydney";
+    const type = typeLabel(get("lpType")?.value || "unit");
+    const beds = get("lpBeds")?.value || "2";
+    const baths = get("lpBaths")?.value || "1";
+    const parking = parkingLabel(get("lpParking")?.value || "none");
+    const desc = get("lpDescription")?.value || "";
+    const photo = state.data.listings[0]?.photos?.[0] || "";
+    if (get("lpReviewRent")) get("lpReviewRent").textContent = money(rent);
+    if (get("lpReviewTitle")) get("lpReviewTitle").textContent = title;
+    if (get("lpReviewMeta")) get("lpReviewMeta").textContent = `${type} · ${suburb} · ${beds} bed · ${baths} bath · ${parking}`;
+    if (get("lpReviewDesc")) get("lpReviewDesc").textContent = desc;
+    if (get("lpReviewPhoto")) get("lpReviewPhoto").src = photo;
   }
 
   function bindListingPreview() {
@@ -719,7 +840,7 @@
       const input = document.getElementById(from);
       const out = document.getElementById(to);
       if (!input || !out) return;
-      const sync = () => { out.textContent = from === "lpType" ? typeLabel(input.value) : input.value; };
+      const sync = () => { out.textContent = from === "lpType" ? typeLabel(input.value) : input.value; syncListingReview(); };
       input.addEventListener("input", sync);
       input.addEventListener("change", sync);
       sync();
@@ -727,10 +848,15 @@
     const rent = document.getElementById("lpRent");
     const rentOut = document.getElementById("lpPreviewRent");
     if (rent && rentOut) {
-      const syncRent = () => { rentOut.innerHTML = money(Number(rent.value) || 0) + "<small>/wk</small>"; };
+      const syncRent = () => { rentOut.innerHTML = money(Number(rent.value) || 0) + "<small>/wk</small>"; syncListingReview(); };
       rent.addEventListener("input", syncRent);
       syncRent();
     }
+    ["lpBeds", "lpBaths", "lpParking", "lpAddress"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("change", syncListingReview);
+    });
+    setListingStep(state.listingStep || 1);
   }
 
   function publishListing() {
@@ -784,8 +910,11 @@
     switch (action) {
       case "role": setRole(el.dataset.role); break;
       case "tenant-notice": state.role = "tenant"; go("notices"); break;
-      case "list-property": state.role = "landlord"; go("list-property"); break;
+      case "list-property": state.role = "landlord"; state.listingStep = 1; go("list-property"); break;
       case "demo-photo": say("Photo picker runs in the installed app"); break;
+      case "listing-step": setListingStep(Number(el.dataset.step)); break;
+      case "listing-back": setListingStep(Math.max(1, state.listingStep - 1)); break;
+      case "listing-next": nextListingStep(); break;
       case "publish-listing": publishListing(); break;
       case "notice-new": openNoticeModal(); break;
       case "notice-post": postNotice(); break;
@@ -799,9 +928,10 @@
         break;
       }
       case "filter": {
-        state.filters.type = el.dataset.type || state.filters.type;
-        state.filters.price = el.dataset.price ? Number(el.dataset.price) : null;
-        state.filters.pets = el.dataset.pets === "1";
+        if (el.dataset.type) state.filters.type = el.dataset.type;
+        if (el.dataset.price) state.filters.price = state.filters.price === Number(el.dataset.price) ? null : Number(el.dataset.price);
+        if (el.dataset.pets) state.filters.pets = !state.filters.pets;
+        if (el.dataset.sort) state.filters.sort = el.dataset.sort;
         render();
         break;
       }
@@ -915,7 +1045,7 @@
   // ---------------------------------------------------------------- PWA
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("sw.js?v=20261123", { updateViaCache: "none" }).then((reg) => reg.update()).catch(() => {
+      navigator.serviceWorker.register("sw.js?v=20261123b", { updateViaCache: "none" }).then((reg) => reg.update()).catch(() => {
         /* offline support is optional */
       });
     });

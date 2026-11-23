@@ -1,11 +1,11 @@
 /* Rent Hub demo service worker: installable, works offline after the first visit.
    Network-first so an online visitor always gets the current demo, not a stale cache. */
-const CACHE = "renthub-demo-v3";
+const CACHE = "renthub-demo-v4";
 const CORE = [
   "./",
   "./index.html",
-  "./demo.css?v=20261123",
-  "./demo.js?v=20261123",
+  "./demo.css?v=20261123b",
+  "./demo.js?v=20261123b",
   "./manifest.webmanifest",
   "../assets/brand/icon-192.png",
   "../assets/brand/icon-512.png",
